@@ -1,0 +1,19 @@
+# GitHub Pages config: serve HTML statico, skip non-portfolio files
+include:
+  - portfolio.html
+  - portfolio-3-stili.html
+  - portfolio-5-stili.html
+  - portfolio.pdf
+  - brochure.html
+  - brochure.pdf
+exclude:
+  - boards/
+  - arch-review/
+  - vault-cliente/
+  - clients/
+  - scripts/
+  - reports/
+  - vault-*/
+  - my-docs/
+  - .planning/
+  - _template/
