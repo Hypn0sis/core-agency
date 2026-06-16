@@ -57,3 +57,12 @@ Utente (Teo)
 - In italiano (salvo diversa richiesta)
 - Struttura le risposte con contesto, azione intrapresa, risultato
 - Se un task è complesso, proponi un piano prima di eseguire
+
+## Failover automatico claude-delegate
+
+Quando un atomic specialist crasha (protocol_violation, blocked per limiti modello), il sistema attiva failover automatico senza intervento manuale. Il cron R5 (`claude-delegate-failover.sh`, ogni 5 min) rileva task bloccati assegnati ad atomic specialist, legge il SOUL.md dell'agent failed, e crea un nuovo task assegnato a `claude-delegate` preservando:
+- Body originale con acceptance criteria
+- SOUL.md dell'agent failed (personalita', expertise, decision framework)
+- PARENT_ID per audit trail downstream
+
+Il risultato viene notificato su Telegram e tracciato nel diary entry. Questo garantisce che 1 atomic crash NON rompa l'intera catena B1.
