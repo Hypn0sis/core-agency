@@ -84,7 +84,7 @@ Le guarda quando vuole e mi dice quale preferisce! Se vuole ci sentiamo per 5 mi
 
 | Lead | Contattato | Risposta | Bozze viste | Call? | Chiuso? |
 |------|:----------:|:--------:|:-----------:|:-----:|:-------:|
-| Fasan Claudio | ☐ | ☐ | ☐ | ☐ | ☐ |
+| Fasan Claudio | ☒ (pronto) | ☐ | ☐ | ☐ | ☐ |
 | Commizzoli Luigi | ☑ | ☐ | ☐ | ☐ | ☐ |
 | ... | ☐ | ☐ | ☐ | ☐ | ☐ |
 

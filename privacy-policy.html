@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Agenzia Web Locale</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: #0f0f11;
+    color: #e8e6e3;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: #c8a44e; text-decoration: none; }
+  a:hover { color: #dbb95a; text-decoration: underline; }
+
+  .policy-header {
+    background: linear-gradient(160deg, #0f0f11 0%, #1a1815 40%, #1c1912 100%);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(200,164,78,0.15);
+  }
+  .policy-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #f5f0e8;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.6rem;
+  }
+  .policy-header .subtitle {
+    font-size: 1rem;
+    color: #a09888;
+  }
+  .policy-header .last-updated {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.82rem;
+    color: #706858;
+    background: rgba(200,164,78,0.08);
+    border: 1px solid rgba(200,164,78,0.2);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+  }
+
+  .policy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+
+  .toc {
+    background: rgba(200,164,78,0.06);
+    border: 1px solid rgba(200,164,78,0.15);
+    border-radius: 10px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 3rem;
+  }
+  .toc h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #c8a44e;
+    margin-bottom: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+  }
+  .toc ol {
+    list-style: none;
+    counter-reset: toc-counter;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2rem;
+  }
+  .toc li {
+    counter-increment: toc-counter;
+    font-size: 0.9rem;
+    color: #a09888;
+    padding-left: 1.8rem;
+    position: relative;
+  }
+  .toc li::before {
+    content: counter(toc-counter) ".";
+    position: absolute;
+    left: 0;
+    color: #c8a44e;
+    font-weight: 600;
+  }
+  .toc li a { color: #b0a898; }
+  .toc li a:hover { color: #c8a44e; }
+
+  .policy-section {
+    margin-bottom: 2.8rem;
+    padding-bottom: 2.8rem;
+    border-bottom: 1px solid rgba(200,164,78,0.1);
+  }
+  .policy-section:last-child { border-bottom: none; }
+  .policy-section h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f0ede8;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .policy-section p {
+    font-size: 0.95rem;
+    color: #b0a898;
+    margin-bottom: 0.8rem;
+  }
+  .policy-section ul, .policy-section ol {
+    margin: 0.8rem 0 0.8rem 1.4rem;
+    color: #b0a898;
+    font-size: 0.95rem;
+  }
+  .policy-section li { margin-bottom: 0.4rem; }
+  .policy-section strong { color: #d0cbb8; font-weight: 600; }
+  .policy-section .highlight {
+    background: rgba(200,164,78,0.08);
+    border-left: 3px solid #c8a44e;
+    padding: 1rem 1.2rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1.2rem 0;
+  }
+  .policy-section .highlight p { margin-bottom: 0; color: #c0b8a8; }
+
+  .contact-box {
+    background: #141412;
+    border: 1px solid #2a2825;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+  }
+  .contact-box p { color: #b0a898; font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .contact-box strong { color: #e0dbc8; }
+  .contact-box a { color: #c8a44e; }
+  .contact-box a:hover { color: #dbb95a; }
+
+  /* ===== FOOTER ===== */
+  .brochure-footer {
+    background: #0a0a0c;
+    border-top: 1px solid #2a2825;
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .footer-content p { color: #807868; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .footer-content strong { color: #a09888; }
+  .footer-small { font-size: 0.8rem !important; color: #706858 !important; }
+  .footer-small a { color: #908878; }
+  .footer-small a:hover { color: #c8a44e; }
+
+  /* ===== PRINT ===== */
+  @media print {
+    body { background: #fff; color: #333; }
+    a { color: #b89430; }
+    .brochure-footer { background: #f5f0e8; border-color: #ddd; }
+    .footer-content p { color: #666; }
+    .footer-small { color: #888 !important; }
+    .footer-small a { color: #666; }
+    .toc { background: #f5f0e8; border-color: #ddd; }
+    .policy-section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="policy-header">
+  <h1>Privacy Policy</h1>
+  <p class="subtitle">Informativa sul trattamento dei dati personali</p>
+  <span class="last-updated">Ultimo aggiornamento: 1 gennaio 2025</span>
+</header>
+
+<!-- ===== CONTENT ===== -->
+<main class="policy-container">
+
+  <!-- Sommario -->
+  <nav class="toc" aria-label="Sommario">
+    <h2>Indice</h2>
+    <ol>
+      <li><a href="#titolare">Titolare del trattamento</a></li>
+      <li><a href="#dati">Dati raccolti</a></li>
+      <li><a href="#finalita">Finalità del trattamento</a></li>
+      <li><a href="#base">Base giuridica</a></li>
+      <li><a href="#conservazione">Conservazione dei dati</a></li>
+      <li><a href="#diritti">Diritti dell'interessato</a></li>
+      <li><a href="#condivisione">Condivisione dei dati</a></li>
+      <li><a href="#sicurezza">Sicurezza dei dati</a></li>
+      <li><a href="#cookie">Cookie e tracciamento</a></li>
+      <li><a href="#modifiche">Modifiche all'informativa</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. Titolare -->
+  <section class="policy-section" id="titolare">
+    <h2>1. Titolare del trattamento</h2>
+    <p><strong>Agenzia Web Locale</strong></p>
+    <p>Sede legale: Via Milano, 12 — 20014 Cornaredo (MI)</p>
+    <p>Email: <a href="mailto:info@agenziaweblocale.it">info@agenziaweblocale.it</a></p>
+    <p>Telefono: <a href="tel:+39029000000">+39 02 9000 0000</a></p>
+    <p>P.IVA: 09876543210</p>
+  </section>
+
+  <!-- 2. Dati raccolti -->
+  <section class="policy-section" id="dati">
+    <h2>2. Dati personali raccolti</h2>
+    <p>Raccogliamo solo i dati strettamente necessari per erogare i nostri servizi. In dettaglio:</p>
+    <ul>
+      <li><strong>Dati di contatto</strong> — nome, cognome, indirizzo email, numero di telefono, indirizzo fisico, forniti volontariamente tramite form o email.</li>
+      <li><strong>Dati tecnici</strong> — indirizzo IP, browser utilizzato, tipo di dispositivo, pagine visitate, raccolti automaticamente tramite cookie e log del server.</li>
+      <li><strong>Dati di navigazione</strong> — pagine visualizzate, tempo di permanenza, referral URL, tramite strumenti analytics.</li>
+      <li><strong>Dati di fatturazione</strong> — ragione sociale, partita IVA, indirizzo di fatturazione, necessari per l'emissione di fatture.</li>
+    </ul>
+    <p><strong>Non raccogliamo</strong> dati sanitari, dati biometrici, dati finanziari sensibili (oltre a quelli di fatturazione), o dati relativi a condanne penali.</p>
+  </section>
+
+  <!-- 3. Finalità -->
+  <section class="policy-section" id="finalita">
+    <h2>3. Finalità del trattamento</h2>
+    <p>I dati sono trattati per le seguenti finalità:</p>
+    <ul>
+      <li><strong>Erogazione servizi</strong> — fornire i servizi digitali concordati (realizzazione sito web, gestione social media, consulenza SEO).</li>
+      <li><strong>Comunicazioni commerciali</strong> — inviare aggiornamenti, proposte e informazioni promozionali relative ai nostri servizi (solo con consenso esplicito).</li>
+      <li><strong>Adempimenti fiscali e contabili</strong> — emissione fatture, registrazione contratti, gestione pagamenti.</li>
+      <li><strong>Miglioramento del servizio</strong> — analisi anonima delle statistiche di utilizzo per ottimizzare il sito e l'esperienza utente.</li>
+      <li><strong>Obblighi di legge</strong> — adempimento di obblighi normativi, regolamentari o su richiesta delle autorità competenti.</li>
+    </ul>
+  </section>
+
+  <!-- 4. Base giuridica -->
+  <section class="policy-section" id="base">
+    <h2>4. Base giuridica del trattamento</h2>
+    <p>Il trattamento dei dati si fonda sulle seguenti basi giuridiche ai sensi del Regolamento (UE) 2016/679 (GDPR):</p>
+    <ul>
+      <li><strong>Art. 6(1)(b) — Contratto</strong>: il trattamento è necessario all'esecuzione di un contratto di cui l'interessato è parte o all'esecuzione di misure precontrattuali.</li>
+      <li><strong>Art. 6(1)(c) — Obbligo legale</strong>: il trattamento è necessario per adempiere un obbligo legale al quale siamo soggetti (es. fatturazione).</li>
+      <li><strong>Art. 6(1)(f) — Legittimo interesse</strong>: il trattamento è necessario per our legittimo interesse (es. miglioramento servizio, sicurezza del sito), sempre bilanciato con i diritti dell'interessato.</li>
+      <li><strong>Art. 6(1)(a) — Consenso</strong>: il trattamento per finalità di marketing avviene solo previo consenso esplicito, libero e informato.</li>
+    </ul>
+  </section>
+
+  <!-- 5. Conservazione -->
+  <section class="policy-section" id="conservazione">
+    <h2>5. Periodo di conservazione</h2>
+    <p>I dati sono conservati per il tempo strettamente necessario alle finalità per cui sono trattati:</p>
+    <ul>
+      <li><strong>Dati contrattuali e di fatturazione</strong>: 10 anni dalla fine del rapporto contrattuale, come previsto dalla normativa fiscale italiana.</li>
+      <li><strong>Dati di contatto e comunicazioni</strong>: 2 anni dall'ultimo contatto attivo, salvo revoca del consenso.</li>
+      <li><strong>Dati di navigazione e analytics</strong>: 26 mesi (periodo standard di Google Analytics).</li>
+      <li><strong>Dati per marketing</strong>: fino a revoca del consenso in qualsiasi momento.</li>
+    </ul>
+    <p>Trascorso il periodo di conservazione, i dati sono cancellati o anonimizzati in modo irreversibile.</p>
+  </section>
+
+  <!-- 6. Diritti -->
+  <section class="policy-section" id="diritti">
+    <h2>6. Diritti dell'interessato</h2>
+    <p>In qualità di interessato hai i seguenti diritti (artt. 15-22 GDPR):</p>
+    <ul>
+      <li><strong>Diritto di accesso</strong> (art. 15) — ottenere conferma che i tuoi dati sono trattati e accedere al loro contenuto.</li>
+      <li><strong>Diritto di rettifica</strong> (art. 16) — chiedere la correzione di dati inesatti o incompleti.</li>
+      <li><strong>Diritto alla cancellazione</strong> (art. 17) — chiedere la cancellazione dei tuoi dati ("diritto all'oblio"), nei limiti previsti dalla legge.</li>
+      <li><strong>Diritto di limitazione</strong> (art. 18) — chiedere la limitazione del trattamento in casi specifici.</li>
+      <li><strong>Diritto alla portabilità</strong> (art. 20) — ricevere i tuoi dati in formato strutturato e di uso comune.</li>
+      <li><strong>Diritto di opposizione</strong> (art. 21) — opporti al trattamento basato su legittimo interesse o per finalità di marketing.</li>
+      <li><strong>Diritto di revoca</strong> — revocare il consenso in qualsiasi momento senza pregiudicare la liceità del trattamento basato sul consenso precedentemente prestato.</li>
+    </ul>
+    <p>Per esercitare i tuoi diritti, contattaci all'indirizzo <a href="mailto:privacy@agenziaweblocale.it">privacy@agenziaweblocale.it</a>. Risponderemo entro <strong>30 giorni</strong>.</p>
+    <p>Hai inoltre il diritto di <strong>reclamo</strong> all'Autorità Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>) se ritieni che il trattamento violi la normativa vigente.</p>
+  </section>
+
+  <!-- 7. Condivisione -->
+  <section class="policy-section" id="condivisione">
+    <h2>7. Condivisione dei dati</h2>
+    <p>I tuoi dati <strong>non sono venduti</strong> a terze parti per finalità di marketing. I dati sono condivisi esclusivamente con:</p>
+    <ul>
+      <li><strong>Provider tecnici</strong> — hosting, email (es. hosting provider, servizio email), che agiscono come responsabili del trattamento ai sensi di un contratto conforme all'art. 28 GDPR.</li>
+      <li><strong>Strumenti analytics</strong> — Google Analytics (con IP anonimizzato e dati non condivisi con Google).</li>
+      <li><strong>Consulenti professionali</strong> — commercialista e consulente legale, vincolati dall'obbligo di riservatezza.</li>
+      <li><strong>Obblighi di legge</strong> — su richiesta motivata di autorità giudiziarie o di vigilanza.</li>
+    </ul>
+    <p>Ogni trasferimento di dati verso Paesi extra-UE avviene nel rispetto delle garanzie previste dagli artt. 44-49 GDPR (clausole contrattuali standard o decisioni di adeguatezza).</p>
+  </section>
+
+  <!-- 8. Sicurezza -->
+  <section class="policy-section" id="sicurezza">
+    <h2>8. Sicurezza dei dati</h2>
+    <p>Adottiamo misure tecniche e organizzative adeguate a garantire un livello di sicurezza appropriato al rischio (art. 32 GDPR):</p>
+    <ul>
+      <li>Crittografia HTTPS (TLS 1.2+) su tutte le comunicazioni.</li>
+      <li>Accesso ai dati limitato al personale autorizzato, tramite credenziali personali.</li>
+      <li>Backup crittografati con backup retention policy definita.</li>
+      <li>Parchi di aggiornamento software e patch di sicurezza regolari.</li>
+      <li>Valutazione del rischio periodica e piano di risposta agli incidenti.</li>
+    </ul>
+    <div class="highlight">
+      <p>In caso di violazione dei dati personali (<strong>data breach</strong>), siamo tenuti a notificare il Garante entro 72 ore e a comunicare la violazione agli interessati quando il rischio è elevato.</p>
+    </div>
+  </section>
+
+  <!-- 9. Cookie -->
+  <section class="policy-section" id="cookie">
+    <h2>9. Cookie e tracciamento</h2>
+    <p>Il nostro sito utilizza cookie e tecnologie simili. Per tutti i dettagli consulta la nostra <a href="/cookie-policy.html">Cookie Policy</a>. In sintesi:</p>
+    <ul>
+      <li><strong>Cookie tecnici necessari</strong> — richiesti per il funzionamento del sito; non richiedono consenso.</li>
+      <li><strong>Cookie analytics</strong> — per statistiche di traffico anonimizzate; richiedono consenso.</li>
+      <li><strong>Cookie di marketing</strong> — per pubblicità mirata; richiedono consenso esplicito.</li>
+    </ul>
+    <p>Il tuo consenso (o rifiuto) per i cookie non necessari può essere espresso e revocato in qualsiasi momento tramite il nostro <a href="/cookie-policy.html">pannello di preferenze cookie</a>.</p>
+  </section>
+
+  <!-- 10. Modifiche -->
+  <section class="policy-section" id="modifiche">
+    <h2>10. Modifiche all'informativa</h2>
+    <p>La presente informativa può essere aggiornata periodicamente per riflettere modifiche normative, tecniche o organizzative. La versione aggiornata è sempre pubblicata su questa pagina con indicazione della data di <em>ultimo aggiornamento</em>.</p>
+    <p>Per le modifiche significative ti informeremo tramite email o con un avviso visibile sul nostro sito prima che entrino in vigore.</p>
+  </section>
+
+  <!-- 11. Contatti -->
+  <section class="policy-section" id="contatti">
+    <h2>11. Contatti</h2>
+    <p>Per qualsiasi domanda sulla presente informativa o per esercitare i tuoi diritti:</p>
+    <div class="contact-box">
+      <p><strong>Titolare:</strong> Agenzia Web Locale</p>
+      <p><strong>Email:</strong> <a href="mailto:privacy@agenziaweblocale.it">privacy@agenziaweblocale.it</a></p>
+      <p><strong>Email generica:</strong> <a href="mailto:info@agenziaweblocale.it">info@agenziaweblocale.it</a></p>
+      <p><strong>Telefono:</strong> <a href="tel:+39029000000">+39 02 9000 0000</a></p>
+      <p><strong>Sede:</strong> Via Milano, 12 — 20014 Cornaredo (MI)</p>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.88rem; color: #706858;">Risposta garantita entro 30 giorni. Puoi anche contattare il Garante per la protezione dei dati personali all'indirizzo <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>.</p>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="brochure-footer">
+  <div class="footer-content">
+    <p><strong>© 2026 Agenzia Web Locale</strong> — Servizi digitali per attività locali</p>
+    <p>Cornaredo (MI) · Milano · Hinterland</p>
+    <p class="footer-small">
+      Partita IVA: 09876543210 · <a href="/privacy-policy.html">Privacy Policy</a> · <a href="/cookie-policy.html">Cookie Policy</a>
+    </p>
+    <p class="footer-small">
+      <em>"Fatto da piccoli imprenditori, per piccoli imprenditori."</em>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy — Agenzia Web Locale</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: #0f0f11;
+    color: #e8e6e3;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: #c8a44e; text-decoration: none; }
+  a:hover { color: #dbb95a; text-decoration: underline; }
+
+  .policy-header {
+    background: linear-gradient(160deg, #0f0f11 0%, #1a1815 40%, #1c1912 100%);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(200,164,78,0.15);
+  }
+  .policy-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #f5f0e8;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.6rem;
+  }
+  .policy-header .subtitle {
+    font-size: 1rem;
+    color: #a09888;
+  }
+  .policy-header .last-updated {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.82rem;
+    color: #706858;
+    background: rgba(200,164,78,0.08);
+    border: 1px solid rgba(200,164,78,0.2);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+  }
+
+  .policy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+
+  .toc {
+    background: rgba(200,164,78,0.06);
+    border: 1px solid rgba(200,164,78,0.15);
+    border-radius: 10px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 3rem;
+  }
+  .toc h2 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #c8a44e;
+    margin-bottom: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .toc ol {
+    list-style: none;
+    counter-reset: toc-counter;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2rem;
+  }
+  .toc li {
+    counter-increment: toc-counter;
+    font-size: 0.9rem;
+    color: #a09888;
+    padding-left: 1.8rem;
+    position: relative;
+  }
+  .toc li::before {
+    content: counter(toc-counter) ".";
+    position: absolute;
+    left: 0;
+    color: #c8a44e;
+    font-weight: 600;
+  }
+  .toc li a { color: #b0a898; }
+  .toc li a:hover { color: #c8a44e; }
+
+  .policy-section {
+    margin-bottom: 2.8rem;
+    padding-bottom: 2.8rem;
+    border-bottom: 1px solid rgba(200,164,78,0.1);
+  }
+  .policy-section:last-child { border-bottom: none; }
+  .policy-section h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #f0ede8;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .policy-section p {
+    font-size: 0.95rem;
+    color: #b0a898;
+    margin-bottom: 0.8rem;
+  }
+  .policy-section ul, .policy-section ol {
+    margin: 0.8rem 0 0.8rem 1.4rem;
+    color: #b0a898;
+    font-size: 0.95rem;
+  }
+  .policy-section li { margin-bottom: 0.4rem; }
+  .policy-section strong { color: #d0cbb8; font-weight: 600; }
+
+  /* Tabella categorie cookie */
+  .cookie-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2rem 0;
+    font-size: 0.9rem;
+  }
+  .cookie-table th {
+    background: rgba(200,164,78,0.1);
+    color: #c8a44e;
+    font-weight: 700;
+    text-align: left;
+    padding: 0.7rem 1rem;
+    border-bottom: 2px solid rgba(200,164,78,0.2);
+  }
+  .cookie-table td {
+    padding: 0.7rem 1rem;
+    color: #b0a898;
+    border-bottom: 1px solid rgba(200,164,78,0.08);
+    vertical-align: top;
+  }
+  .cookie-table tr:last-child td { border-bottom: none; }
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .badge-green { background: rgba(80,180,80,0.15); color: #80c080; border: 1px solid rgba(80,180,80,0.3); }
+  .badge-yellow { background: rgba(200,164,78,0.12); color: #c8a44e; border: 1px solid rgba(200,164,78,0.25); }
+  .badge-red { background: rgba(200,80,80,0.12); color: #c87070; border: 1px solid rgba(200,80,80,0.25); }
+
+  /* Pannello preferenze */
+  .cookie-preference-panel {
+    background: #141412;
+    border: 1px solid #2a2825;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+  .cookie-pref-header {
+    background: rgba(200,164,78,0.08);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(200,164,78,0.15);
+  }
+  .cookie-pref-header h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f0ede8;
+    margin-bottom: 0.2rem;
+  }
+  .cookie-pref-header p { font-size: 0.85rem; color: #807868; margin-bottom: 0; }
+  .cookie-pref-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(200,164,78,0.08);
+    gap: 1rem;
+  }
+  .cookie-pref-row:last-child { border-bottom: none; }
+  .cookie-pref-info { flex: 1; }
+  .cookie-pref-info h4 { font-size: 0.95rem; font-weight: 600; color: #e0dbc8; margin-bottom: 0.2rem; }
+  .cookie-pref-info p { font-size: 0.82rem; color: #807868; margin-bottom: 0; }
+  .toggle-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: #2a2825;
+    border-radius: 24px;
+    transition: background 0.25s;
+  }
+  .toggle-slider::before {
+    content: '';
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: #807868;
+    border-radius: 50%;
+    transition: transform 0.25s, background 0.25s;
+  }
+  .toggle-switch input:checked + .toggle-slider { background: rgba(200,164,78,0.2); }
+  .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); background: #c8a44e; }
+
+  .contact-box {
+    background: #141412;
+    border: 1px solid #2a2825;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+  }
+  .contact-box p { color: #b0a898; font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .contact-box strong { color: #e0dbc8; }
+  .contact-box a { color: #c8a44e; }
+  .contact-box a:hover { color: #dbb95a; }
+
+  /* ===== FOOTER ===== */
+  .brochure-footer {
+    background: #0a0a0c;
+    border-top: 1px solid #2a2825;
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .footer-content p { color: #807868; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .footer-content strong { color: #a09888; }
+  .footer-small { font-size: 0.8rem !important; color: #706858 !important; }
+  .footer-small a { color: #908878; }
+  .footer-small a:hover { color: #c8a44e; }
+
+  /* ===== PRINT ===== */
+  @media print {
+    body { background: #fff; color: #333; }
+    a { color: #b89430; }
+    .brochure-footer { background: #f5f0e8; border-color: #ddd; }
+    .footer-content p { color: #666; }
+    .footer-small { color: #888 !important; }
+    .footer-small a { color: #666; }
+    .toc { background: #f5f0e8; border-color: #ddd; }
+    .cookie-preference-panel { display: none; }
+    .policy-section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="policy-header">
+  <h1>Cookie Policy</h1>
+  <p class="subtitle">Informativa sull'uso dei cookie e delle tecnologie di tracciamento</p>
+  <span class="last-updated">Ultimo aggiornamento: 1 gennaio 2025</span>
+</header>
+
+<!-- ===== CONTENT ===== -->
+<main class="policy-container">
+
+  <!-- Sommario -->
+  <nav class="toc" aria-label="Sommario">
+    <h2>Indice</h2>
+    <ol>
+      <li><a href="#cosa">Cosa sono i cookie</a></li>
+      <li><a href="#categorie">Categorie di cookie</a></li>
+      <li><a href="#cookie-utilizzati">Cookie che utilizziamo</a></li>
+      <li><a href="#terze-parti">Cookie di terze parti</a></li>
+      <li><a href="#preferenze">Gestione delle preferenze</a></li>
+      <li><a href="#durata">Durata dei cookie</a></li>
+      <li><a href="#disabilitare">Come disabilitare i cookie</a></li>
+      <li><a href="#modifiche">Modifiche alla policy</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. Cosa sono -->
+  <section class="policy-section" id="cosa">
+    <h2>1. Cosa sono i cookie</h2>
+    <p>I <strong>cookie</strong> sono piccoli file di testo che i siti web memorizzano sul tuo dispositivo (computer, tablet, smartphone) durante la navigazione. I cookie vengono inviati al tuo browser ad ogni visita successiva e permettono al sito di "ricordare" le tue preferenze, le tue scelte e le tue abitudini di navigazione.</p>
+    <p>Oltre ai cookie, utilizziamo tecnologie simili come <strong>pixel tag</strong>, <strong>web beacon</strong> e <strong>local storage</strong>, che hanno funzioni analoghe e sono disciplinati dalla presente policy.</p>
+    <p>La presente informativa è redatta in conformità al <strong>D.Lgs. 196/2003</strong> (Codice Privacy) come modificato dal <strong>D.Lgs. 101/2018</strong> e al <strong>Regolamento (UE) 2016/679 (GDPR)</strong>, nonché alle Linee guida sui cookie dell'European Data Protection Board (EDPB) e del Garante italiano.</p>
+  </section>
+
+  <!-- 2. Categorie -->
+  <section class="policy-section" id="categorie">
+    <h2>2. Categorie di cookie</h2>
+    <p>I cookie sono classificabili in base alla loro origine, alla loro durata e alla loro finalità:</p>
+
+    <table class="cookie-table">
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Descrizione</th>
+          <th>Consenso richiesto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tecnici / Necessari</strong></td>
+          <td>Essenziali per il funzionamento del sito. Non memorizzano informazioni identificative e non possono essere disattivati.</td>
+          <td><span class="badge badge-green">No</span></td>
+        </tr>
+        <tr>
+          <td><strong>Analytics</strong></td>
+          <td>Analizzano il traffico in forma anonimizzata per comprendere come i visitatori usano il sito.</td>
+          <td><span class="badge badge-yellow">Sì</span></td>
+        </tr>
+        <tr>
+          <td><strong>Funzionali</strong></td>
+          <td>Ricordano le tue preferenze (lingua, regione, carrello) per migliorare l'esperienza.</td>
+          <td><span class="badge badge-yellow">Sì</span></td>
+        </tr>
+        <tr>
+          <td><strong>Marketing / Profilazione</strong></td>
+          <td>Creano profili di navigazione per pubblicità mirata. Possono tracciarti su più siti.</td>
+          <td><span class="badge badge-red">Sì (esplicito)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 3. Cookie utilizzati -->
+  <section class="policy-section" id="cookie-utilizzati">
+    <h2>3. Cookie che utilizziamo</h2>
+
+    <h3 style="font-size:1.05rem; color:#d0cbb8; margin-bottom:0.6rem;">Cookie tecnici necessari</h3>
+    <table class="cookie-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Fornitore</th>
+          <th>Finalità</th>
+          <th>Durata</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>PHPSESSID</code></td>
+          <td>Proprietario (1° parte)</td>
+          <td>Sessione PHP del server</td>
+          <td>Di sessione</td>
+        </tr>
+        <tr>
+          <td><code>cookie_consent</code></td>
+          <td>Proprietario (1° parte)</td>
+          <td>Memorizza le preferenze sui cookie</td>
+          <td>1 anno</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:1.05rem; color:#d0cbb8; margin:1.2rem 0 0.6rem;">Cookie analytics</h3>
+    <table class="cookie-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Fornitore</th>
+          <th>Finalità</th>
+          <th>Durata</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>_ga</code></td>
+          <td>Google LLC (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>)</td>
+          <td>Google Analytics — distingue visitatori unici (IP anonimizzato)</td>
+          <td>26 mesi</td>
+        </tr>
+        <tr>
+          <td><code>_gid</code></td>
+          <td>Google LLC</td>
+          <td>Google Analytics — distingue sessioni</td>
+          <td>24 ore</td>
+        </tr>
+        <tr>
+          <td><code>_gat</code></td>
+          <td>Google LLC</td>
+          <td>Google Analytics — throttle richieste</td>
+          <td>1 minuto</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.85rem; color:#706858; margin-top:0.5rem;">Nota: tutti i cookie analytics sono configurati con IP anonimizzato (anonymizeIp) e "Do Not Track" rispettato. Nessun dato è condiviso con Google a fini pubblicitari.</p>
+  </section>
+
+  <!-- 4. Terze parti -->
+  <section class="policy-section" id="terze-parti">
+    <h2>4. Cookie di terze parti</h2>
+    <p>I cookie di terze parti sono impostati da domini diversi dal nostro sito. Sul nostro sito potremmo utilizzare:</p>
+    <ul>
+      <li><strong>Google Analytics</strong> — vedi sezione 3. Utilizziamo l'estensione <em>IP Anonymization</em> e non attiviamo funzioni pubblicitarie di Google.</li>
+      <li><strong>Social media (pulsanti di condivisione)</strong> — se presente un widget social (es. Instagram), i relativi cookie sono impostati dalla piattaforma social. Ti consigliamo di verificare le politiche privacy dei social network che utilizzi.</li>
+      <li><strong>Servizi embedding</strong> — se il sito include video (es. YouTube) o mappe esterne, i relativi provider potrebbero impostare cookie. Non abbiamo影响力的 su tali cookie.</li>
+    </ul>
+    <div style="background:rgba(200,80,80,0.08); border-left:3px solid #c87070; padding:1rem 1.2rem; border-radius:0 6px 6px 0; margin:1rem 0;">
+      <p style="margin-bottom:0; color:#c07070;"><strong>Non utilizziamo cookie di marketing o profilazione di terze parti</strong> (es. Google Ads, Facebook Pixel) sul nostro sito. Se in futuro li introducessimo, ti chiederemo un consenso esplicito.</p>
+    </div>
+  </section>
+
+  <!-- 5. Gestione preferenze -->
+  <section class="policy-section" id="preferenze">
+    <h2>5. Gestione delle preferenze sui cookie</h2>
+    <p>Il banner cookie che hai visualizzato alla prima visita ti permette di accettare tutti i cookie, rifiutare quelli non necessari, o configurare le tue preferenze in dettaglio.</p>
+    <p>Puoi modificare le tue preferenze in qualsiasi momento tramite il pannello sottostante:</p>
+
+    <!-- Pannello interattivo -->
+    <div class="cookie-preference-panel" role="region" aria-label="Preferenze cookie">
+      <div class="cookie-pref-header">
+        <h3>Preferenze Cookie</h3>
+        <p>Gestisci quali categorie di cookie acconsenti. I cookie tecnici necessari non possono essere disattivati.</p>
+      </div>
+      <div class="cookie-pref-row">
+        <div class="cookie-pref-info">
+          <h4>Cookie tecnici necessari</h4>
+          <p>Essenziali per il funzionamento del sito. Non richiedono consenso.</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-pref-row">
+        <div class="cookie-pref-info">
+          <h4>Cookie analytics</h4>
+          <p>Analizzano il traffico in forma anonimizzata. IP anonimizzato, nessun dato condiviso con terze parti.</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="pref-analytics">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-pref-row">
+        <div class="cookie-pref-info">
+          <h4>Cookie funzionali</h4>
+          <p>Ricordano lingua, preferenze di visualizzazione e altre impostazioni.</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="pref-functional">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-pref-row">
+        <div class="cookie-pref-info">
+          <h4>Cookie marketing</h4>
+          <p>Attualmente non utilizzati. Se attivati in futuro, ti chiederemo un consenso esplicito.</p>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="pref-marketing" disabled>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+    <p style="font-size:0.85rem; color:#706858;">Le modifiche alle preferenze hanno effetto dal prossimo accesso al sito. Per reimpostare i cookie, cancellare i dati del sito dal browser.</p>
+  </section>
+
+  <!-- 6. Durata -->
+  <section class="policy-section" id="durata">
+    <h2>6. Durata dei cookie</h2>
+    <p>I cookie si distinguono anche per durata:</p>
+    <ul>
+      <li><strong>Cookie di sessione</strong> — temporanei, eliminati alla chiusura del browser. Non memorizzano dati persistenti.</li>
+      <li><strong>Cookie persistenti</strong> — rimangono sul dispositivo per un periodo definito (da 24 ore a 2 anni) e vengono riattivati ad ogni visita successiva al sito.</li>
+    </ul>
+    <p>Puoi verificare e gestire la durata dei cookie nelle impostazioni del tuo browser (sezione "Privacy" o "Sicurezza").</p>
+  </section>
+
+  <!-- 7. Disabilitare -->
+  <section class="policy-section" id="disabilitare">
+    <h2>7. Come disabilitare i cookie</h2>
+    <p>Puoi disabilitare i cookie non necessari in tre modi:</p>
+    <ol>
+      <li><strong>Pannello preferenze</strong> — usa il pannello interattivo nella sezione 5 di questa pagina (effetto dal prossimo accesso).</li>
+      <li><strong>Banner cookie</strong> — alla prima visita seleziona "Rifiuta tutto" o "Personalizza" e deseleziona le categorie non desiderate.</li>
+      <li><strong>Impostazioni del browser</strong> — disattiva o elimina i cookie tramite le impostazioni del browser. Ecco i collegamenti alle guide dei principali browser:
+        <ul style="margin-top:0.4rem;">
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+          <li><a href="https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+          <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+          <li><a href="https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
+        </ul>
+      </li>
+    </ol>
+    <div style="background:rgba(200,164,78,0.07); border-left:3px solid #c8a44e; padding:1rem 1.2rem; border-radius:0 6px 6px 0; margin:1rem 0;">
+      <p style="margin-bottom:0; color:#b0a898;"><strong>Avviso:</strong> disabilitando i cookie analytics e funzionali alcune parti del sito potrebbero non funzionare correttamente. I cookie tecnici necessari non possono essere disabilitati in quanto essenziali per il funzionamento.</p>
+    </div>
+  </section>
+
+  <!-- 8. Modifiche -->
+  <section class="policy-section" id="modifiche">
+    <h2>8. Modifiche alla Cookie Policy</h2>
+    <p>La presente informativa può essere aggiornata in qualsiasi momento per riflettere cambiamenti normativi, tecnici o nell'utilizzo di nuovi servizi. La versione aggiornata è sempre pubblicata su questa pagina con indicazione della data di <em>ultimo aggiornamento</em>.</p>
+    <p>Per le modifiche significative ti informeremo tramite avviso sul sito.</p>
+  </section>
+
+  <!-- 9. Contatti -->
+  <section class="policy-section" id="contatti">
+    <h2>9. Contatti</h2>
+    <div class="contact-box">
+      <p><strong>Titolare:</strong> Agenzia Web Locale</p>
+      <p><strong>Email:</strong> <a href="mailto:info@agenziaweblocale.it">info@agenziaweblocale.it</a></p>
+      <p><strong>Email (privacy):</strong> <a href="mailto:privacy@agenziaweblocale.it">privacy@agenziaweblocale.it</a></p>
+      <p><strong>Sede:</strong> Via Milano, 12 — 20014 Cornaredo (MI)</p>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.88rem; color: #706858;">Consulta anche la nostra <a href="/privacy-policy.html">Privacy Policy</a> per informazioni complete sul trattamento dei dati personali.</p>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="brochure-footer">
+  <div class="footer-content">
+    <p><strong>© 2026 Agenzia Web Locale</strong> — Servizi digitali per attività locali</p>
+    <p>Cornaredo (MI) · Milano · Hinterland</p>
+    <p class="footer-small">
+      Partita IVA: 09876543210 · <a href="/privacy-policy.html">Privacy Policy</a> · <a href="/cookie-policy.html">Cookie Policy</a>
+    </p>
+    <p class="footer-small">
+      <em>"Fatto da piccoli imprenditori, per piccoli imprenditori."</em>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
