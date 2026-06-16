@@ -1,7 +1,7 @@
 # Wingman — Team degli Agenti
 
 Architettura multi-board con Wingman come autorità suprema.
-47 agent markdown (4 dispatcher + 4 curator + 4 summarizer + 35 atomici) + Wingman + client-dispatcher (varia) — assunti dai migliori repo pubblici.
+51 agent markdown (4 dispatcher + 4 curator + 4 summarizer + 39 atomici) + Wingman + client-dispatcher (varia) — assunti dai migliori repo pubblici.
 
 ## Struttura
 
@@ -12,7 +12,7 @@ wingman/
 ├── clients/
 │   └── dispatcher.md      ← Client Dispatcher (ingresso clienti, dispatch ai board)
 └── boards/
-    ├── sviluppo/          ← 12 markdown (dispatcher + curator + summarizer + 9 atomici)
+    ├── sviluppo/          ← 16 markdown (dispatcher + curator + summarizer + 13 atomici)
     ├── marketing/         ← 12 markdown (dispatcher + curator + summarizer + 9 atomici)
     ├── admin/             ← 10 markdown (dispatcher + curator + summarizer + 7 atomici)
     └── sales/             ← 13 markdown (dispatcher + curator + summarizer + 10 atomici)
@@ -26,7 +26,7 @@ Ogni board ha:
 - **Summarizer** — riassume attività del board per Wingman e altri board
 - **Agenti atomici** — uno per funzione, tecnologia-agnostici
 
-## Board SVILUPPO (12 agenti)
+## Board SVILUPPO (16 agenti)
 
 | Agente | Ruolo | Ispirato da |
 |--------|-------|-------------|
@@ -39,6 +39,10 @@ Ogni board ha:
 | tester | Test strategy, unit, integration, e2e | VoltAgent subagents pattern |
 | integrator | API third-party, webhooks, middleware | awesome-claude-code-toolkit |
 | optimizer | Performance audit, caching, bundle | awesome-claude-code-toolkit |
+| design-system-architect | Design tokens (palette, typography, spacing), component primitives | awesome-claude-code-toolkit (frontend-architect), shadcn/ui |
+| ui-ux-expert | Information architecture, wireframe, user flow, interaction patterns | awesome-claude-code-toolkit (ux-designer), 21st.dev, Refactoring UI |
+| motion-designer | Micro-interaction, transition, scroll animation, performance budget | Framer Motion docs, Aceternity UI, GSAP |
+| a11y-auditor | WCAG 2.2 AA audit, semantic HTML, contrast, keyboard, screen-reader | axe-core, WCAG 2.2, Deque |
 | data-modeler | Schema, types, data flow, state | custom |
 | docs-writer | API docs, setup guide, changelog | awesome-claude-code-toolkit (technical-writer) |
 | ops | CI/CD, build, deploy, infra | awesome-claude-code-toolkit + ECC |
