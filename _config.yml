@@ -2,10 +2,15 @@
 include:
   - portfolio.html
   - portfolio-3-stili.html
-  - portfolio-5-stili.html
   - portfolio.pdf
   - brochure.html
   - brochure.pdf
+  - portfolio-stile-alimentari.html
+  - portfolio-stile-editoriale.html
+  - portfolio-stile-vivace.html
+  - portfolio-stile-servizi.html
+  - portfolio-stile-moda.html
+  - pricing.html
 exclude:
   - boards/
   - arch-review/
