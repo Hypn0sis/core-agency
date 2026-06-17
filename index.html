@@ -48,7 +48,7 @@
   }
   .nav-cta:hover{opacity:.9}
 
-  /* HERO — fullscreen with stock photo */
+  /* HERO */
   .hero{
     min-height:100vh;
     display:flex;align-items:center;
@@ -122,6 +122,7 @@
   /* SECTIONS */
   .section{padding:100px 28px}
   .section-inner{max-width:1100px;margin:0 auto}
+  .section-inner.narrow{max-width:760px}
   .section-label{
     font-size:0.65rem;font-weight:700;text-transform:uppercase;
     letter-spacing:3px;color:var(--red);margin-bottom:10px;
@@ -131,65 +132,11 @@
     font-size:2.6rem;font-weight:400;color:#fff;
     margin-bottom:12px;line-height:1.15;
   }
+  .section h2 em{font-style:italic;color:var(--red)}
   .section .lead{
     color:var(--muted);font-size:1rem;line-height:1.6;
     max-width:540px;margin-bottom:48px;
   }
-
-  /* STYLE SHOWCASE */
-  .showcase-grid{
-    display:grid;grid-template-columns:repeat(5,1fr);gap:12px;
-  }
-  .showcase-card{
-    position:relative;
-    border-radius:14px;overflow:hidden;
-    aspect-ratio:3/4;
-    cursor:pointer;
-    border:1px solid var(--border);
-    transition:all .4s;
-    display:flex;align-items:flex-end;
-  }
-  .showcase-card:hover{
-    transform:translateY(-6px);
-    border-color:var(--red);
-    box-shadow:0 20px 50px rgba(224,69,69,.12);
-  }
-  .showcase-card .sc-bg{
-    position:absolute;inset:0;
-    transition:transform .5s;
-  }
-  .showcase-card:hover .sc-bg{transform:scale(1.08)}
-  .showcase-card .sc-overlay{
-    position:absolute;inset:0;
-    background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,transparent 60%);
-  }
-  .showcase-card .sc-content{
-    position:relative;z-index:2;padding:24px 20px;
-    width:100%;
-  }
-  .showcase-card .sc-icon{font-size:1.6rem;margin-bottom:4px;display:block}
-  .showcase-card .sc-name{
-    font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:2px;
-  }
-  .showcase-card .sc-desc{
-    font-size:0.7rem;color:rgba(255,255,255,.6);
-  }
-  .showcase-card .sc-num{
-    position:absolute;top:14px;right:14px;
-    background:rgba(0,0,0,.5);backdrop-filter:blur(8px);
-    color:#fff;font-size:0.6rem;font-weight:700;
-    padding:3px 8px;border-radius:4px;
-    z-index:3;
-  }
-  .showcase-card .sc-arrow{
-    position:absolute;bottom:20px;right:20px;
-    width:32px;height:32px;border-radius:50%;
-    background:var(--red);
-    display:flex;align-items:center;justify-content:center;
-    color:#fff;font-size:0.8rem;z-index:3;
-    transition:all .3s;opacity:0;transform:translateY(5px);
-  }
-  .showcase-card:hover .sc-arrow{opacity:1;transform:translateY(0)}
 
   /* SERVICES GRID */
   .services-grid{
@@ -283,7 +230,7 @@
     position:relative;
   }
   .price-card.best::before{
-    content:'PIÙ SCELTO';
+    content:'PIU SCELTO';
     position:absolute;top:-10px;right:20px;
     background:var(--red);color:#fff;
     font-size:0.55rem;font-weight:700;letter-spacing:1px;
@@ -309,47 +256,110 @@
   .price-card.best .btn-out{background:var(--red);border-color:var(--red)}
   .price-card.best .btn-out:hover{background:#c73e3e}
 
-  /* CTA */
-  .cta-sec{
-    padding:120px 28px;text-align:center;
-    background:
-      linear-gradient(135deg,rgba(10,10,10,.95),rgba(10,10,10,.8)),
-      url('https://images.unsplash.com/photo-1515182629504-727d7753751f?w=1920&h=600&fit=crop&auto=format') center/cover fixed no-repeat;
+  /* PROCESSO */
+  .processo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+  .processo-card{
+    background:var(--card);border-radius:16px;padding:32px 24px;
+    border:1px solid var(--border);
   }
-  .cta-sec h2{
-    font-family:'DM Serif Display',serif;
-    font-size:3.2rem;font-weight:400;color:#fff;max-width:700px;margin:0 auto 16px;
+  .processo-card.highlight{border-color:rgba(224,69,69,.3)}
+  .step-num{
+    font-size:3rem;font-weight:800;line-height:1;margin-bottom:16px;
+    color:transparent;-webkit-text-stroke:1px #2a2a2a;
   }
-  .cta-sec h2 em{font-style:italic;color:var(--red)}
-  .cta-sec p{color:var(--muted);font-size:1rem;max-width:480px;margin:0 auto 36px;line-height:1.7}
-  .cta-sec .big-btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:18px 48px;background:var(--red);color:#fff;
-    text-decoration:none;border-radius:10px;font-weight:700;font-size:1rem;
-    transition:all .2s;letter-spacing:-.3px;
-  }
-  .cta-sec .big-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(224,69,69,.3)}
+  .processo-card.highlight .step-num{-webkit-text-stroke:1px rgba(224,69,69,.25)}
+  .processo-card h3{font-size:1rem;font-weight:700;color:#eee;margin-bottom:8px}
+  .processo-card p{font-size:0.85rem;color:var(--muted);line-height:1.6}
 
+  /* FAQ */
+  .faq-list{display:flex;flex-direction:column;gap:8px}
+  .faq-item{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:12px;overflow:hidden;
+  }
+  .faq-item summary{
+    padding:18px 20px;font-size:0.88rem;font-weight:500;color:#eee;
+    cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;
+    gap:12px;
+    user-select:none;
+    transition:background .2s;
+  }
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{
+    content:'+';color:var(--red);font-size:1.2rem;
+    flex-shrink:0;line-height:1;transition:transform .2s;
+  }
+  .faq-item[open] summary::after{content:'×'}
+  .faq-item summary:hover{background:rgba(255,255,255,.03)}
+  .faq-body{padding:0 20px 18px;font-size:0.84rem;color:var(--muted);line-height:1.7}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:center}
+  .about-visual{
+    background:var(--card);border:1px solid var(--border);border-radius:20px;
+    aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .about-visual .badge-40{
+    position:absolute;bottom:16px;right:16px;
+    font-size:0.7rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:2px;color:#444;
+  }
+
+  /* CONTATTI */
+  .contatti-card{
+    background:var(--card);border:1px solid var(--border);border-radius:20px;
+    padding:64px 48px;text-align:center;
+  }
+  .contatti-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:32px;margin-bottom:28px}
+  .contatti-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 16px;border:1px solid var(--border);border-radius:30px;
+    font-size:0.72rem;color:#555;
+  }
+
+  /* FOOTER */
   footer{
-    padding:40px 28px;border-top:1px solid var(--border);
-    text-align:center;
+    padding:48px 28px;border-top:1px solid var(--border);
   }
-  footer p{color:var(--muted);font-size:0.8rem;line-height:1.6}
-  footer .fl{font-size:1.1rem;font-weight:800;margin-bottom:4px;color:#fff}
-  footer .fl span{color:var(--red)}
+  .footer-inner{
+    max-width:1100px;margin:0 auto;
+    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:start;gap:24px;
+  }
+  .footer-brand .fl{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:4px}
+  .footer-brand .fl span{color:var(--red)}
+  .footer-brand p{font-size:0.78rem;color:#444;line-height:1.5}
+  .footer-nav{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .footer-nav a{font-size:0.78rem;color:#444;text-decoration:none;transition:color .2s}
+  .footer-nav a:hover{color:#888}
+  .footer-copy{
+    max-width:1100px;margin:20px auto 0;padding-top:20px;
+    border-top:1px solid #111;
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;
+  }
+  .footer-copy p{font-size:0.7rem;color:#333}
+  .footer-copy a{color:#444;text-decoration:none}
+  .footer-copy a:hover{color:#666}
 
+  /* RESPONSIVE */
   @media(max-width:900px){
     .hero h1{font-size:2.8rem}
     .services-grid{grid-template-columns:1fr}
-    .showcase-grid,.port-grid{grid-template-columns:repeat(2,1fr)}
+    .port-grid{grid-template-columns:repeat(2,1fr)}
     .pricing-grid{grid-template-columns:1fr}
+    .processo-grid{grid-template-columns:repeat(2,1fr)}
+    .about-grid{grid-template-columns:1fr}
+    .about-visual{display:none}
     .nav-links a:not(.nav-cta){display:none}
   }
   @media(max-width:500px){
     .hero h1{font-size:2rem}
     .section h2{font-size:1.8rem}
     .hero-strip{flex-wrap:wrap;gap:20px}
-    .showcase-grid,.port-grid{grid-template-columns:1fr 1fr}
+    .port-grid{grid-template-columns:1fr 1fr}
+    .processo-grid{grid-template-columns:1fr}
+    .contatti-card{padding:40px 24px}
   }
 </style>
 </head>
@@ -357,12 +367,13 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="#" class="logo">Teo<span>Digital</span></a>
+    <a href="#" class="logo">CORE<span>.</span></a>
     <div class="nav-links">
       <a href="#servizi">Servizi</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#prezzi">Prezzi</a>
-      <a href="portfolio.html" class="nav-cta">Vedi portfolio</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contatti" class="nav-cta">Inizia</a>
     </div>
   </div>
 </nav>
@@ -377,8 +388,8 @@
     <h1>Il tuo <em>negozio</em> sul web.<br>3 bozze gratis,<br>in stili diversi.</h1>
     <p>Ti preparo il sito della tua attività in 3 vesti grafiche differenti. Le vediamo insieme in una call. Scegli quello che preferisci senza impegno.</p>
     <div class="hero-actions">
-      <a href="portfolio.html" class="btn-primary">Vedi portfolio →</a>
-      <a href="#servizi" class="btn-secondary">Scopri i servizi</a>
+      <a href="#contatti" class="btn-primary">Inizia gratis →</a>
+      <a href="portfolio.html" class="btn-secondary">Guarda i mockup</a>
     </div>
     <div class="hero-strip">
       <div class="hero-strip-item"><div class="num">€750</div><div class="lbl">Una tantum</div></div>
@@ -389,7 +400,7 @@
   </div>
 </section>
 
-<section class="section" id="servizi">
+<section class="section" id="servizi" style="border-top:1px solid var(--border)">
   <div class="section-inner">
     <div class="section-label">✦ Servizi</div>
     <h2>Cosa ottieni con me</h2>
@@ -397,20 +408,20 @@
     <div class="services-grid">
       <div class="svc-card featured">
         <span class="emoji">🎯</span>
-        <h3>Bundle Sito + Social</h3>
-        <p>Sito professionale (una tantum €750) + social management + manutenzione. Il massimo per la tua presenza online.</p>
+        <h3>Crescita Completa</h3>
+        <p>Sito professionale (una tantum €750) + manutenzione + social management. Tutto incluso, il sito rimane tuo per sempre.</p>
         <div class="price">€121 <small>/mese</small></div>
         <div class="svc-tags">
           <span class="svc-tag">Sito incluso</span>
           <span class="svc-tag">Social gestito</span>
-          <span class="svc-tag alt">Assistenza illimitata</span>
+          <span class="svc-tag alt">Sito tuo per sempre</span>
         </div>
       </div>
       <div class="svc-card">
         <span class="emoji">🌐</span>
         <h3>Sito web vetrina</h3>
         <p>Mobile, SEO, Google Maps, Instagram integrato, modulo contatti. Il biglietto da visita digitale della tua attività.</p>
-        <div class="price">€750 <small>+ IVA</small></div>
+        <div class="price">€750 <small>una tantum</small></div>
         <div class="svc-tags">
           <span class="svc-tag">Mobile first</span>
           <span class="svc-tag">SEO base</span>
@@ -432,7 +443,7 @@
   </div>
 </section>
 
-<section class="section" id="portfolio" style="padding-top:0">
+<section class="section" id="portfolio" style="padding-top:0;border-top:1px solid var(--border)">
   <div class="section-inner">
     <div class="section-label">✦ Portfolio</div>
     <h2>Ogni settore, 5 stili</h2>
@@ -492,7 +503,7 @@
   </div>
 </section>
 
-<section class="section" id="prezzi" style="padding-top:0">
+<section class="section" id="prezzi" style="padding-top:0;border-top:1px solid var(--border)">
   <div class="section-inner">
     <div class="section-label">✦ Prezzi</div>
     <h2>Investi nella tua presenza online</h2>
@@ -518,7 +529,7 @@
           <li>Sito incluso (vale €750)</li>
           <li>Manutenzione e aggiornamenti</li>
           <li>Social management attivo</li>
-          <li>2 post/settimana professionali</li>
+          <li>4 post + 4 storie/sett</li>
           <li>Il sito rimane tuo per sempre</li>
         </ul>
         <a href="pricing.html" class="btn-out">Scopri l'offerta →</a>
@@ -526,10 +537,10 @@
       <div class="price-card">
         <div class="pt">Social Starter</div>
         <div class="pp">€89 <small>/mese</small></div>
-        <div class="per">se hai già un sito CORE.</div>
+        <div class="per">standalone o con piano manutenzione</div>
         <ul>
           <li>Gestione Instagram + Facebook</li>
-          <li>2 post/settimana professionali</li>
+          <li>4 post + 4 storie/sett</li>
           <li>Copywriting + calendario</li>
           <li>Report mensile</li>
         </ul>
@@ -539,16 +550,172 @@
   </div>
 </section>
 
-<section class="cta-sec">
-  <h2>3 bozze, <em>zero</em> impegno.</h2>
-  <p>Ti preparo il tuo sito in 3 stili diversi. Lo vediamo insieme in call di 15 minuti. Se ti piace, è tuo. Se no, pace.</p>
-  <a href="portfolio.html" class="big-btn">Vedi il portfolio →</a>
+<section class="section" id="processo" style="border-top:1px solid var(--border)">
+  <div class="section-inner">
+    <div class="section-label">✦ Come funziona</div>
+    <h2>Dal brief al live<br><em>in 4 passi.</em></h2>
+    <div class="processo-grid">
+      <div class="processo-card">
+        <div class="step-num">01</div>
+        <h3>Brief</h3>
+        <p>Call di 20 minuti. Raccogliamo posizionamento, competitor, target, tone of voice. Nessun modulo da compilare.</p>
+      </div>
+      <div class="processo-card">
+        <div class="step-num">02</div>
+        <h3>Setup</h3>
+        <p>Dominio, hosting, struttura, palette, font. Tutto configurato prima di scrivere una riga di codice.</p>
+      </div>
+      <div class="processo-card highlight">
+        <div class="step-num">03</div>
+        <h3>Build <span style="color:var(--red)">48h</span></h3>
+        <p>Sviluppo completo, revisioni incluse, test su tutti i dispositivi. Live in meno di 3 giorni lavorativi.</p>
+      </div>
+      <div class="processo-card">
+        <div class="step-num">04</div>
+        <h3>Cresci</h3>
+        <p>Contenuti social mensili, aggiornamenti sito, report. Noi gestiamo il digitale, tu ti occupi del tuo lavoro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq" style="border-top:1px solid var(--border)">
+  <div class="section-inner narrow">
+    <div class="section-label">✦ FAQ</div>
+    <h2>Domande frequenti.<br><em>Risposte dirette.</em></h2>
+    <div class="faq-list" style="margin-top:40px">
+
+      <details class="faq-item">
+        <summary>Come funziona la garanzia soddisfatti o rimborsati?</summary>
+        <div class="faq-body">Se entro il primo mese non sei soddisfatto del servizio mensile, ti rimborsiamo integralmente il canone pagato. Il sito resta tuo senza costi aggiuntivi. La garanzia si applica solo al primo mese di abbonamento, non al sito una tantum.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Come funziona il pagamento del sito web?</summary>
+        <div class="faq-body">Il sito EUR 750 si paga in due rate: 50% all'ordine (avvio lavori), 50% al go-live. Il canone mensile viene fatturato in anticipo ogni mese. Tutti i prezzi sono IVA esclusa.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Posso disdire il canone mensile quando voglio?</summary>
+        <div class="faq-body">Si, con preavviso di 30 giorni e senza penali. Non ci sono vincoli di durata minima. Il sito resta comunque di tua proprieta. Potrai poi gestire autonomamente hosting e dominio.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Devo fornire le foto o le fate voi?</summary>
+        <div class="faq-body">Le foto professionali del tuo locale non sono incluse nel sito da EUR 750 e si quotano separatamente (da EUR 250 a EUR 600). Puoi anche fornire foto tue: in quel caso le integriamo senza costi aggiuntivi. Foto stock royalty-free incluse dove necessario.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>I contenuti social sono personalizzati o generici?</summary>
+        <div class="faq-body">Personalizzati. All'onboarding compiliamo un brief insieme: posizionamento, competitor, target, tone of voice. Ogni contenuto e costruito sul tuo brand. Se dopo il primo mese non ti sembra centrato, lo rifacciamo gratuitamente.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Chi siete? Siete davvero un team o un singolo freelance?</summary>
+        <div class="faq-body">Un sistema di 40 specialisti dedicati: sviluppatori, copywriter, strategist SEO, social manager. Ogni progetto ha il suo esperto. Tu parli solo con Teo — nessun account intermedio, nessun muro burocratico.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Cosa devo avere pronto per iniziare?</summary>
+        <div class="faq-body">Il minimo indispensabile: logo (anche in bassa risoluzione), testi principali (chi sei, cosa fai, dove sei), eventuali foto. Se non hai tutto subito, non e un problema: iniziamo dal brief e raccogliamo i materiali insieme. Il timer dei 48h parte dalla ricezione dei materiali, non dall'ordine.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Fate anche e-commerce o siti multilingua?</summary>
+        <div class="faq-body">Si, ma con preventivo separato. L'e-commerce e fuori dai pacchetti standard. Stesso vale per siti multilingua o con funzionalita avanzate. Scrivici su WhatsApp: in 5 minuti capiamo se il tuo progetto rientra nel standard o ha bisogno di un piano custom.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" style="border-top:1px solid var(--border)">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <circle cx="60" cy="60" r="58" stroke="#e04545" stroke-width=".5" opacity=".25"/>
+          <circle cx="60" cy="60" r="40" stroke="#e04545" stroke-width=".5" opacity=".15"/>
+          <polygon points="60,10 110,90 10,90" stroke="#e04545" stroke-width=".5" fill="none" opacity=".2"/>
+          <rect x="42" y="38" width="36" height="28" rx="2" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+          <line x1="42" y1="50" x2="78" y2="50" stroke="#e04545" stroke-width=".5" opacity=".4"/>
+          <line x1="42" y1="58" x2="78" y2="58" stroke="#e04545" stroke-width=".5" opacity=".3"/>
+          <circle cx="50" cy="80" r="4" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+          <circle cx="60" cy="80" r="4" fill="#e04545" opacity=".65"/>
+          <circle cx="70" cy="80" r="4" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+        </svg>
+        <div class="badge-40">40+</div>
+      </div>
+      <div>
+        <div class="section-label">✦ Chi siamo</div>
+        <h2 style="font-family:'DM Serif Display',serif;font-size:2.4rem;font-weight:400;color:#fff;margin:10px 0 16px;line-height:1.15">
+          Un team.<br><em style="font-style:italic;color:var(--red)">Dalla tua parte.</em>
+        </h2>
+        <p style="color:var(--muted);font-size:0.92rem;line-height:1.7;margin-bottom:12px">
+          Un sistema di 40 specialisti dedicati: sviluppatori, copywriter, strategist SEO, social manager. Ogni progetto ha il suo esperto. Tu parli solo con Teo.
+        </p>
+        <p style="color:var(--muted);font-size:0.92rem;line-height:1.7;margin-bottom:24px">
+          Procedure standardizzate di produzione e deploy ci permettono di lavorare con l'efficienza di una software house e la cura di uno studio boutique. Costi competitivi perche l'overhead e strutturalmente basso, non perche tagliamo sulla qualita.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="https://wa.me/393469509746" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Parlaci su WhatsApp
+          </a>
+          <a href="pricing.html" class="btn-secondary">
+            Vedi i prezzi
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contatti" style="border-top:1px solid var(--border)">
+  <div class="section-inner narrow">
+    <div class="contatti-card">
+      <div class="section-label" style="margin-bottom:12px">✦ Pronto a partire?</div>
+      <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;color:#eee;line-height:1.15;margin-bottom:16px">
+        Il tuo sito live<br><em style="font-style:italic;color:var(--red)">in 48 ore.</em>
+      </h2>
+      <p style="color:var(--muted);font-size:0.95rem;line-height:1.7;max-width:440px;margin:0 auto">
+        Inizia con una call gratuita di 20 minuti. Nessun impegno.
+        Se decidi di procedere, il sito e online in 3 giorni lavorativi.
+      </p>
+      <div class="contatti-actions">
+        <a href="https://wa.me/393469509746" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inizia su WhatsApp
+        </a>
+        <a href="mailto:hypnosis.mda@gmail.com?subject=Richiesta%20sito%20web%20CORE." class="btn-secondary">
+          Scrivi una email
+        </a>
+      </div>
+      <div class="contatti-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#e04545" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Garanzia soddisfatti o rimborsati - primo mese
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-  <div class="fl">CORE<span>.</span></div>
-  <p>Siti web per attività locali · Prezzi veri, niente sorprese</p>
-  <p style="margin-top:2px;font-size:0.7rem;color:#333">© 2026</p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="fl">CORE<span>.</span></div>
+      <p>Siti web e social management<br>per locali e professionisti</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#servizi">Servizi</a>
+      <a href="pricing.html">Prezzi</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#faq">FAQ</a>
+      <a href="privacy-policy.html">Privacy</a>
+    </nav>
+  </div>
+  <div class="footer-copy">
+    <p>&copy; 2026 CORE. &middot; <a href="mailto:hypnosis.mda@gmail.com">hypnosis.mda@gmail.com</a></p>
+    <p>Prezzi IVA esclusa &middot; No vincoli &middot; Disdici quando vuoi</p>
+  </div>
 </footer>
 
 </body>
