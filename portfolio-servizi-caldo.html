@@ -662,25 +662,30 @@ footer a:hover{opacity:.8}
 })();
 </script>
 
+
+
 <script>
 (function(){
-  /* -- TIP STRIP -- */
   var tipKey='core-tip-v1';
   if(!sessionStorage.getItem(tipKey)){
     var ts=document.createElement('div');
     ts.id='demo-tip';
-    ts.innerHTML='<span>✦ &nbsp;Vedi il sito in stili diversi — usa i pulsanti in alto per cambiare<\/span>'
-      +'<button id="demo-tip-x" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,.4);font-size:1.1rem;line-height:1;padding:0 .25rem;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.4)'">&#215;<\/button>';
+    var sp=document.createElement('span');
+    sp.textContent='✶  Vedi il sito in stili diversi — usa i pulsanti in alto per cambiare';
+    var btn=document.createElement('button');
+    btn.innerHTML='&times;';
+    btn.style.cssText='background:none;border:none;cursor:pointer;color:rgba(255,255,255,.4);font-size:1.15rem;line-height:1;padding:0 .3rem';
+    ts.appendChild(sp);
+    ts.appendChild(btn);
     document.body.appendChild(ts);
-    var showT=setTimeout(function(){ts.style.transform='translateY(0)'},1500);
     var hideT=setTimeout(function(){ts.style.transform='translateY(100%)'},12000);
-    document.getElementById('demo-tip-x').addEventListener('click',function(){
+    setTimeout(function(){ts.style.transform='translateY(0)'},1500);
+    btn.addEventListener('click',function(){
       ts.style.transform='translateY(100%)';
       clearTimeout(hideT);
       sessionStorage.setItem(tipKey,'1');
     });
   }
-  /* -- ARROW BADGE near active pill -- */
   var badgeKey='core-badge-v1';
   if(!sessionStorage.getItem(badgeKey)){
     var pill=document.querySelector('.demo-style-pill.active');
@@ -689,15 +694,15 @@ footer a:hover{opacity:.8}
       badge.id='demo-pill-badge';
       badge.textContent='cambia stile';
       document.body.appendChild(badge);
-      function pos(){var r=pill.getBoundingClientRect();badge.style.top=(r.bottom+10)+'px';badge.style.left=(r.left+r.width/2)+'px';}
-      pos();
+      var r=pill.getBoundingClientRect();
+      badge.style.top=(r.bottom+10)+'px';
+      badge.style.left=(r.left+r.width/2)+'px';
       badge.style.animation='tipFloat 1.8s ease-in-out 1s infinite';
-      var showB=setTimeout(function(){badge.style.opacity='1'},1000);
-      var hideB=setTimeout(function(){badge.style.opacity='0'},9000);
+      setTimeout(function(){badge.style.opacity='1'},1000);
+      setTimeout(function(){badge.style.opacity='0'},9000);
     }
   }
 })();
 </script>
-
 </body>
 </html>
