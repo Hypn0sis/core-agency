@@ -326,8 +326,8 @@ footer{
 }
 
 /* Floating style switcher */
-#sf{position:fixed;right:1rem;top:50%;transform:translateY(-50%);z-index:200;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
-.sf-btn{display:flex;align-items:center;gap:.45rem;background:rgba(5,3,1,.92);backdrop-filter:blur(14px);border:1px solid rgba(212,168,83,.18);border-radius:100px;padding:.4rem .8rem .4rem .55rem;font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(212,168,83,.5);white-space:nowrap;cursor:default}
+#sf{position:fixed;right:1.25rem;bottom:1.5rem;z-index:200;display:flex;flex-direction:column-reverse;align-items:flex-end;gap:.4rem}
+.sf-btn{display:flex;align-items:center;gap:.45rem;background:rgba(5,3,1,.92);backdrop-filter:blur(14px);border:1.5px solid rgba(212,168,83,.52);border-radius:100px;padding:.55rem 1.1rem .55rem .75rem;font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(212,168,83,.5);white-space:nowrap;cursor:pointer}
 .sf-panel{display:none;background:rgba(8,6,4,.97);backdrop-filter:blur(16px);border:1px solid rgba(212,168,83,.14);border-radius:6px;padding:.65rem .55rem;min-width:148px}
 .sf-head{font-size:.56rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(212,168,83,.28);margin-bottom:.55rem;padding:0 .4rem}
 .sf-a{display:flex;align-items:center;gap:.5rem;padding:.38rem .45rem;border-radius:3px;font-size:.67rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,221,208,.38);text-decoration:none;transition:all .15s}
@@ -336,7 +336,12 @@ footer{
 .sf-dot{width:5px;height:5px;border-radius:50%;background:rgba(212,168,83,.2);flex-shrink:0}
 .sf-a.on .sf-dot{background:#d4a853}
 #sf:hover .sf-panel{display:block}
-@media(max-width:768px){#sf{display:none}}
+@media(max-width:768px){#sf{right:.75rem;bottom:1rem}}
+@keyframes sfBounce{0%,100%{transform:translateY(0)}35%{transform:translateY(-5px)}65%{transform:translateY(-2px)}}
+.sf-btn.sf-go{animation:sfBounce .7s ease-out 3}
+.sf-chev{transition:transform .2s;margin-left:.1rem}
+.sf-btn[aria-expanded=true] .sf-chev{transform:rotate(180deg)}
+#sf.sf-open .sf-panel{display:block}
 </style>
 </head>
 <body>
@@ -681,10 +686,11 @@ footer{
 </script>
 
 <div id="sf">
-  <div class="sf-btn">
-    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-    3 stili
-  </div>
+  <button class="sf-btn" id="sf-btn" aria-label="Cambia stile demo" aria-expanded="false">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+    Cambia stile
+    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" aria-hidden="true" class="sf-chev"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
   <div class="sf-panel">
     <div class="sf-head">Stesso sito, look diverso</div>
     <a href="portfolio-stile-alimentari.html" class="sf-a"><span class="sf-dot"></span>Artigianale</a>
@@ -692,5 +698,15 @@ footer{
     <a href="portfolio-alimentari-moderno.html" class="sf-a"><span class="sf-dot"></span>Moderno</a>
   </div>
 </div>
+<script>
+(function(){
+var btn=document.getElementById('sf-btn'),sf=document.getElementById('sf'),panel=sf&&sf.querySelector('.sf-panel');
+if(!btn||!panel)return;
+setTimeout(function(){btn.classList.add('sf-go');},800);
+btn.addEventListener('animationend',function(){btn.classList.remove('sf-go');});
+btn.addEventListener('click',function(e){e.stopPropagation();var o=sf.classList.toggle('sf-open');btn.setAttribute('aria-expanded',String(o));});
+document.addEventListener('click',function(){sf.classList.remove('sf-open');btn.setAttribute('aria-expanded','false');});
+})();
+</script>
 </body>
 </html>
