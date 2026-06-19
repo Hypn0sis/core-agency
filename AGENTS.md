@@ -1,7 +1,7 @@
 # Wingman — Team degli Agenti
 
 Architettura multi-board con Wingman come autorità suprema.
-**48 profile totali**: 51 markdown per board (4 dispatcher + 39 atomici) + 5 cross/global (claude-delegate, consistency-keeper, recruiter, curator, summarizer) + Wingman + client-dispatcher — assunti dai migliori repo pubblici.
+**49 profile totali**: 52 markdown per board (4 dispatcher + 40 atomici) + 5 cross/global (claude-delegate, consistency-keeper, recruiter, curator, summarizer) + Wingman + client-dispatcher — assunti dai migliori repo pubblici.
 
 > **Nota architetturale**: curator e summarizer sono profile GLOBALI (1 ciascuno), non per-board. Vengono referenziati via `assignee curator` / `assignee summarizer` da qualsiasi board. I 4 dispatcher sono embedded nei profile base di ciascun board.
 
@@ -14,7 +14,7 @@ wingman/
 ├── clients/
 │   └── dispatcher.md      ← Client Dispatcher (ingresso clienti, dispatch ai board)
 └── boards/
-    ├── sviluppo/          ← 16 markdown (dispatcher + curator + summarizer + 13 atomici)
+    ├── sviluppo/          ← 17 markdown (dispatcher + curator + summarizer + 14 atomici)
     ├── marketing/         ← 12 markdown (dispatcher + curator + summarizer + 9 atomici)
     ├── admin/             ← 10 markdown (dispatcher + curator + summarizer + 7 atomici)
     └── sales/             ← 13 markdown (dispatcher + curator + summarizer + 10 atomici)
@@ -28,13 +28,14 @@ Ogni board ha:
 - **Summarizer** — riassume attività del board per Wingman e altri board
 - **Agenti atomici** — uno per funzione, tecnologia-agnostici
 
-## Board SVILUPPO (16 agenti)
+## Board SVILUPPO (17 agenti)
 
 | Agente | Ruolo | Ispirato da |
 |--------|-------|-------------|
 | dispatcher | Routing richieste | awesome-claude-code-subagents |
 | curator | Qualità codice + docs + repo hygiene | ECC react-reviewer framework |
 | summarizer | Riepilogo attività | custom |
+| asset-auditor | Inventario asset sito cliente (logo, tel, orari, social, P.IVA); salva manifest in vault-cliente; PRIMO in catena TEMPLATE-FAST e DESIGN-HEAVY | custom |
 | architect | Architettura sistema, ADR, dependency graph | awesome-claude-code-toolkit (frontend-architect) |
 | builder | Implementazione feature | awesome-claude-code-toolkit (developer) |
 | reviewer | Code review, bug detection, security | ECC (react-reviewer, multi-reviewers) |
