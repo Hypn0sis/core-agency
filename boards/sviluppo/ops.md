@@ -40,3 +40,70 @@ Sei l'operations del Board Sviluppo. Gestisci build pipeline, CI/CD, deploy e in
 - **Blue-Green:** Due ambienti identici. Si alternano come attivo/passivo.
 - **Canary:** Rilascia a una percentuale crescente di utenti.
 - **Rolling:** Sostituisce le istanze una alla volta.
+
+
+---
+
+## Modalita PREVIEW-SITE (UC10) - Deploy GitHub Pages
+
+Attivata quando il task brief contiene `task_type: preview-site`.
+
+### Prerequisiti
+
+- `gh` CLI configurato (auth token in env o `~/.config/gh/`)
+- SSH key per git push a GitHub
+- `index.html` in `/tmp/preview-{slug}/` (output del builder)
+
+### Workflow deploy
+
+```bash
+SLUG="$(cat ~/wingman/vault-sales/{lead_id}/tokens.json | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["_slug"])')"
+PREVIEW_DIR="/tmp/preview-${SLUG}"
+REPO="Hypn0sis/${SLUG}"
+
+# 1. Crea repo se non esiste
+gh repo create "${REPO}" --public --description "Preview site CORE." 2>/dev/null || true
+
+# 2. Init e push
+cd "${PREVIEW_DIR}"
+git init
+git add index.html
+git commit -m "preview site"
+git branch -M main
+git remote add origin "https://github.com/${REPO}.git" 2>/dev/null ||   git remote set-url origin "https://github.com/${REPO}.git"
+git push -f origin main
+
+# 3. Abilita GitHub Pages
+gh api repos/${REPO}/pages   --method POST   -f source='{"branch":"main","path":"/"}' 2>/dev/null || gh api repos/${REPO}/pages   --method PUT   -f source='{"branch":"main","path":"/"}' 2>/dev/null || true
+
+# 4. Scrivi URL in vault-sales
+PREVIEW_URL="https://hypn0sis.github.io/${SLUG}/"
+echo "${PREVIEW_URL}" > ~/wingman/vault-sales/{lead_id}/preview_url.txt
+
+echo "Preview live: ${PREVIEW_URL}"
+```
+
+### Note operative
+
+- GitHub Pages impiega 30-60s dopo il push prima di rispondere HTTP 200
+- `gh repo create` e idempotente con `2>/dev/null || true`
+- Force push (`-f`) garantisce idempotenza se il preview viene rigenerato
+- Se `gh` non disponibile: usa curl + GitHub API con `GITHUB_TOKEN` da env
+
+### Verifica post-deploy
+
+```bash
+sleep 60
+curl -s -o /dev/null -w "%{http_code}" "${PREVIEW_URL}"
+# Atteso: 200. Se 404 → Pages non ancora pronto, riprova tra 30s
+```
+
+### kanban_complete Mini-Report
+
+```
+Preview site deployato.
+URL: {PREVIEW_URL}
+Repo: github.com/{REPO}
+Template: {template_file}
+Token iniettati: {n}/{totale}
+```

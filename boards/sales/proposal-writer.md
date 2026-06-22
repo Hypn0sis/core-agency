@@ -48,3 +48,56 @@ Sei il proposal writer del Board Sales. Prepari documenti commerciali che conver
 8. Business model / pricing
 9. Roadmap
 10. Chiusura e CTA
+
+
+---
+
+## Outreach lead outbound - modalita Preview Site (UC10)
+
+Quando il task e di tipo `outreach` per un lead outbound (prospect, non cliente attivo):
+
+### Step 1 - Controlla preview URL
+
+```bash
+cat ~/wingman/vault-sales/{lead_id}/preview_url.txt 2>/dev/null
+```
+
+- Se esiste: includi URL nel messaggio (vedi template sotto)
+- Se non esiste dopo 5 min dall'avvio: procedi senza URL, ometti il blocco preview
+
+### Template DM/email con preview
+
+```
+Ciao {NOME_REFERENTE},
+
+ho visto che gestisci {NOME_ATTIVITA'} a {CITTA'} e ho pensato che potessi trovarlo utile.
+
+Ho preparato una demo del tuo sito web:
+{PREVIEW_URL}
+
+E gia online, personalizzata per la tua attivita'. Basta che tu mi dica di si e diventa tua in 48 ore.
+
+Possiamo fare una chiamata veloce questa settimana?
+
+Matteo
+CORE. — siti per attivita' locali
+```
+
+### Regole
+
+- Preview URL va nel corpo, mai nell'oggetto email
+- Non descrivere il sito in dettaglio - la curiosita' fa clic
+- Non usare "demo" o "prova" — usa "il tuo sito" per creare senso di proprieta'
+- Tono diretto, max 5-6 righe
+- Se WhatsApp disponibile: preferisci DM a email (tasso apertura 3x)
+
+### Salvataggio outreach
+
+Dopo invio, salva in `vault-sales/{lead_id}/outreach_log.md`:
+```
+Data: {data}
+Canale: {whatsapp|email|instagram_dm}
+Preview URL: {url o "N/A"}
+Testo inviato: {testo}
+Status: sent
+```
