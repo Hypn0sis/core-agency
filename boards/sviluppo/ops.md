@@ -107,3 +107,63 @@ Repo: github.com/{REPO}
 Template: {template_file}
 Token iniettati: {n}/{totale}
 ```
+
+
+---
+
+## Modalita DEPLOY-CLIENTE (produzione) - Cloudflare Workers
+
+Usa quando il sito cliente va live su dominio custom (non preview).
+Alternativa a GitHub Pages: supporta custom domain con HTTPS automatico via Cloudflare.
+
+### Prerequisiti
+
+- `~/.hermes/cloudflare.env` con `CF_TOKEN` (Workers Scripts:Edit + DNS:Edit) e `CF_ACCOUNT_ID`
+- `wrangler` CLI o `npx` disponibile
+- Zona dominio cliente ACTIVE su Cloudflare
+- Sito in una directory locale con `index.html`
+
+### Workflow
+
+```bash
+~/wingman/scripts/deploy-client-worker.sh \
+  --slug macelleria-bergamaschi \
+  --site-dir /tmp/bergamaschi-local \
+  --domain fratelli-bergamaschi.it
+```
+
+Lo script:
+1. Scrive `wrangler.toml` + `.wranglerignore` nella dir sito
+2. Esegue `wrangler deploy` — Worker live su `{slug}.{account}.workers.dev`
+3. Se zona ACTIVE: lega `--domain` via CF Custom Domains API (HTTPS auto, 1-5 min)
+4. Se zona non ACTIVE: stampa istruzioni manuali
+
+### Credenziali
+
+```bash
+# ~/.hermes/cloudflare.env
+CF_TOKEN=...       # DNS:Edit + Workers Scripts:Edit + Workers Routes:Edit
+CF_ACCOUNT_ID=...  # da dash.cloudflare.com
+```
+
+### GitHub Pages vs Workers
+
+| | GitHub Pages | Cloudflare Workers |
+|---|---|---|
+| Preview site (UC10) | SI | no |
+| Sito cliente finale | no | SI |
+| Custom domain HTTPS | no | SI automatico |
+
+### Script
+
+```bash
+~/wingman/scripts/deploy-client-worker.sh --slug SLUG --site-dir DIR [--domain DOMAIN]
+```
+
+### kanban_complete Mini-Report
+
+```
+Sito deployato su Cloudflare Workers.
+Worker: https://{slug}.{account}.workers.dev
+Domain: https://{domain}
+```
