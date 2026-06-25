@@ -1,4 +1,4 @@
-# Offerta Servizi CORE. — Review Strategica V2
+# Offerta Servizi COREFLUX STUDIO — Review Strategica V2
 
 > **Data revisione:** Giugno 2026
 > *Allineato alle decisioni del council e a pricing.html (source of truth)*
@@ -99,7 +99,7 @@ Fine periodo — il cliente vuole continuare?
 | **Dominio Locale** | Sito + Crescita + Social Starter | **€151** | **€1.549** | - |
 | **Avvio Completo** | Custodia + Social Starter (no sito) | **€92** | **€984** | - |
 
-Avvio Completo: solo per clienti con sito CORE. gia attivo. Non per siti di terzi.
+Avvio Completo: solo per clienti con sito COREFLUX STUDIO gia attivo. Non per siti di terzi.
 
 ### 2.4 Clausola protezione Crescita Completa
 
@@ -186,13 +186,13 @@ Prezzo
        |
 €600   |         * Freelance Junior
        |
-€349   | * CORE. Social Elite (mensile)
+€349   | * COREFLUX STUDIO Social Elite (mensile)
        |
-€249   | * CORE. Social Pro (mensile)
+€249   | * COREFLUX STUDIO Social Pro (mensile)
        |
-€89    | * CORE. Social Starter (mensile)
+€89    | * COREFLUX STUDIO Social Starter (mensile)
        |
-€30    | * CORE. Custodia
+€30    | * COREFLUX STUDIO Custodia
        +------------------------------------------------> Servizio
          Solo sito   Sito+social light   Full ecosystem
 ```
@@ -203,7 +203,7 @@ Prezzo
 
 ## 5. REGOLE GOLD — NON NEGOZIABILI
 
-1. **Manutenzione solo per siti CORE.** — non gestiamo siti di terzi, mai.
+1. **Manutenzione solo per siti COREFLUX STUDIO** — non gestiamo siti di terzi, mai.
 2. **Try & Buy:** 2 post/sett, 2 mesi, uguale per tutti i tier. Non rinnovabile, non scalabile.
 3. **Sito a €750:** prezzo floor invalicabile. No sconti, no "faccio in due giorni per €500".
 4. **Social Elite:** non pushare attivamente. Su preventivo. Ancora psicologica.

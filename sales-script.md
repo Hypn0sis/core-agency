@@ -1,4 +1,4 @@
-# CORE. - Script Colloquio di Vendita
+# COREFLUX STUDIO - Script Colloquio di Vendita
 
 > Script operativo per colloqui con PMI italiane. Durata target: 30-45 minuti.
 > Il tono e' quello di un consulente, non di un closer. Si ascolta piu' di quanto si parla nella prima meta'.
@@ -22,7 +22,7 @@
 ## Fase 1 - Apertura e Rapport (5 min)
 
 ### Tono
-Informale, curioso. Non iniziare mai con "allora, le illustro i nostri servizi". Prima di parlare di CORE., parla di loro.
+Informale, curioso. Non iniziare mai con "allora, le illustro i nostri servizi". Prima di parlare di COREFLUX STUDIO, parla di loro.
 
 ### Apertura standard (primo contatto)
 
@@ -146,7 +146,7 @@ Prima di passare alla presentazione, dovresti sapere:
 - [ ] Hanno gia' speso per il digitale? (mensile o una tantum?)
 - [ ] Sono il decisore?
 - [ ] C'e' urgenza o scadenza?
-- [ ] Scenario: nuovo cliente / ha sito CORE. / ha sito di altri
+- [ ] Scenario: nuovo cliente / ha sito COREFLUX STUDIO / ha sito di altri
 
 Se mancano 2+ risposte, continua a fare domande. Non presentare ancora.
 
@@ -218,7 +218,7 @@ Poi torna su Crescita Completa:
 
 ### Quando presentare Avvio Completo
 
-**Profilo target**: ha gia' un sito CORE. che funziona, vuole aggiungere social + manutenzione.
+**Profilo target**: ha gia' un sito COREFLUX STUDIO che funziona, vuole aggiungere social + manutenzione.
 
 > "Visto che il sito e' gia' nostro e funziona bene, non ha senso rifare tutto. Il pacchetto Avvio Completo prende la manutenzione piu' i social - 92 euro al mese o 984 annuale."
 
@@ -232,7 +232,7 @@ Cliente senza sito
  - Vuole solo sito + manutenzione → Bundle Scenario C (Business Online €1.099)
  - Non vuole mensile → Solo sito €750
 
-Cliente con sito CORE.
+Cliente con sito COREFLUX STUDIO
  - Vuole social + manutenzione → Avvio Completo (€92/mo)
 
 Cliente con sito di altri
@@ -449,7 +449,7 @@ Poi stop. Chi non risponde dopo 3 contatti non e' pronto. Archivio e si riattiva
 |----------|---------|---------|------|
 | **Crescita Completa** | €121 | €1.238 (o €1.311 in 2 rate) | Hero. Sito incluso + Cura + Social Starter |
 | Dominio Locale | €151 | €1.549 | Anchor premium |
-| Avvio Completo | €92 | €984 | Solo per chi ha gia' sito CORE. |
+| Avvio Completo | €92 | €984 | Solo per chi ha gia' sito COREFLUX STUDIO |
 | Solo sito | - | €750 (50+50) | Fallback price-sensitive |
 | Manutenzione Custodia | €30 | - | Solo mantenimento |
 | Manutenzione Cura | €59 | - | Standard |
@@ -479,4 +479,4 @@ Poi stop. Chi non risponde dopo 3 contatti non e' pronto. Archivio e si riattiva
 
 ---
 
-*Documento operativo CORE. - aggiornato giugno 2026*
+*Documento operativo COREFLUX STUDIO - aggiornato giugno 2026*

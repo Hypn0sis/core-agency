@@ -1,4 +1,4 @@
-# Offerta Servizi Digitali — CORE.
+# Offerta Servizi Digitali — COREFLUX STUDIO
 
 > **Sito professionale + manutenzione + social management. Qualita da agenzia, prezzo da abbonamento.**
 > *Versione V2 — Giugno 2026. Source of truth: pricing.html*
@@ -14,7 +14,7 @@
 5. **O il nostro prodotto hero**: Crescita Completa — sito + manutenzione + social da **€121/mese** (sito incluso gratis)
 
 **Regole non negoziabili:**
-- Manutenzione solo per siti realizzati da CORE. — non gestiamo siti di terzi
+- Manutenzione solo per siti realizzati da COREFLUX STUDIO — non gestiamo siti di terzi
 - Social: mensile senza impegno, o upfront 6/12 mesi con sconto (1 mese gratis su 12m)
 - Non compresi: shooting foto/video, grafica stampa, e-commerce (preventivo separato)
 
@@ -46,7 +46,7 @@ Sito multipagina professionale, chiavi in mano.
 
 ## PARTE 2 — MANUTENZIONE MENSILE
 
-Solo per siti realizzati da CORE. Include hosting, dominio, modifiche e **Try & Buy social per i primi 2 mesi** (2 post IG/sett — uguale per tutti i tier).
+Solo per siti realizzati da COREFLUX STUDIO Include hosting, dominio, modifiche e **Try & Buy social per i primi 2 mesi** (2 post IG/sett — uguale per tutti i tier).
 
 Il piano parte dal mese 13 (primo anno hosting+dominio inclusi nel sito).
 
@@ -93,7 +93,7 @@ Il piano parte dal mese 13 (primo anno hosting+dominio inclusi nel sito).
 
 ## PARTE 3 — SOCIAL MANAGEMENT (servizio separato)
 
-Standalone o abbinato a manutenzione. Non richiede sito CORE. come prerequisito, ma consigliato.
+Standalone o abbinato a manutenzione. Non richiede sito COREFLUX STUDIO come prerequisito, ma consigliato.
 
 Opzioni di pagamento: **6 mesi**, **12 mesi**, o **mensile senza impegno** (prezzo piu alto).
 
@@ -191,7 +191,7 @@ Risparmi vs componenti separati: €261 / €359 / €469.
 - Crescita Completa annuale: €1.457 (sito gratis, risparmio €750)
 - Upfront con sconto 15%: €1.238
 
-**Avvio Completo:** per clienti con sito CORE. gia attivo (Custodia + Social Starter). Non per siti di terzi.
+**Avvio Completo:** per clienti con sito COREFLUX STUDIO gia attivo (Custodia + Social Starter). Non per siti di terzi.
 
 ---
 
@@ -210,7 +210,7 @@ Risparmi vs componenti separati: €261 / €359 / €469.
 
 ## PARTE 7 — CONFRONTO COL MERCATO
 
-| Servizio | CORE. | Freelance medio | Agenzia |
+| Servizio | COREFLUX STUDIO | Freelance medio | Agenzia |
 |---|---|---|---|
 | Sito web | €750 | €2.000-€5.000 | €5.000-€15.000 |
 | Custodia/mese | €30 | €100-250/mese | €300-600/mese |
@@ -245,7 +245,7 @@ Risparmi vs componenti separati: €261 / €359 / €469.
 > €249/mese per 6 post/sett + 8 storie + 1 Reel + brand kit + LinkedIn. Un social manager umano costa €800-1.500/mese per lo stesso volume.
 
 **"Posso comprare solo social senza sito?"**
-> Si. Il Social Management e venduto standalone. La manutenzione sito invece richiede sito CORE.
+> Si. Il Social Management e venduto standalone. La manutenzione sito invece richiede sito COREFLUX STUDIO
 
 **"Cosa succede dopo i 12 mesi di Crescita Completa?"**
 > Libero di disdire con 30 giorni di preavviso. Il sito e gia tuo. Al rinnovo, prezzo bloccato a €109/mese.

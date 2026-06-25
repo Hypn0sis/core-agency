@@ -1,6 +1,6 @@
-# CORE. - Email Templates + Lead Gen Pipeline
+# COREFLUX STUDIO - Email Templates + Lead Gen Pipeline
 
-> Documento operativo per il team CORE. - cold outreach, follow-up post-call, pipeline lead gen.
+> Documento operativo per il team COREFLUX STUDIO - cold outreach, follow-up post-call, pipeline lead gen.
 > Prodotto: Crescita Completa (€121/mese). Target: PMI italiane diffidenti delle agenzie.
 > Aggiornato: giugno 2026
 
@@ -23,7 +23,7 @@ Gestiamo sito, manutenzione e social per PMI italiane a €121 al mese. Tutto in
 Funziona per attivita come la tua?
 
 [Nome]
-CORE.
+COREFLUX STUDIO
 
 ---
 
@@ -44,7 +44,7 @@ Noi includiamo tutto: sito nuovo, manutenzione, gestione social. €121 al mese.
 Ti faccio vedere come funziona in concreto?
 
 [Nome]
-CORE.
+COREFLUX STUDIO
 
 ---
 
@@ -65,7 +65,7 @@ Se non e il momento giusto, nessun problema - capita. Ma prima di andare ti lasc
 Se mai ti tornasse in mente, sai dove trovarmi.
 
 [Nome]
-CORE.
+COREFLUX STUDIO
 
 ---
 
@@ -112,7 +112,7 @@ Se dovessi uscire prima del termine: €500 forfettario - il sito e comunque tuo
 Prenditi il tempo che ti serve. Se hai domande, rispondo qui.
 
 [Nome]
-CORE.
+COREFLUX STUDIO
 
 ---
 
@@ -128,7 +128,7 @@ CORE.
 
 | Campo | Dettaglio |
 |-------|-----------|
-| **Canale** | Sito web CORE. |
+| **Canale** | Sito web COREFLUX STUDIO |
 | **Trigger** | Visita alla pagina servizi o prezzi + clic su "Parlami di questo" |
 | **Info catturate** | Nome, email, tipo attivita, problema principale (max 4 campi) |
 | **Cosa succede dopo** | Email automatica di conferma entro 5 minuti + follow-up manuale entro 24h con proposta di call |
@@ -185,7 +185,7 @@ CORE.
 | **Info catturate** | Chiamata diretta o messaggio dalla scheda Google |
 | **Cosa succede dopo** | Risposta entro 2h + qualificazione in 3 domande ("Hai gia un sito?", "Cosa vorresti cambiare?", "Quando puoi fare una call di 15 minuti?") |
 
-> Scheda Google Business e gratuita e spesso ignorata dalle agenzie stesse. Per CORE. e uno dei canali piu credibili: dimostra coerenza tra il servizio offerto e come si e trovabili.
+> Scheda Google Business e gratuita e spesso ignorata dalle agenzie stesse. Per COREFLUX STUDIO e uno dei canali piu credibili: dimostra coerenza tra il servizio offerto e come si e trovabili.
 
 ---
 
@@ -206,4 +206,4 @@ Oggetti testati o pronti da testare per cold outreach PMI italiane:
 
 ---
 
-*Documento operativo CORE. - aggiornato giugno 2026*
+*Documento operativo COREFLUX STUDIO - aggiornato giugno 2026*

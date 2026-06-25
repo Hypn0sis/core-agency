@@ -12,7 +12,7 @@ Sei invocato da `claude-delegate` (profile Hermes Agent worker) per task comples
 - Email: hypnosis.mda@gmail.com
 - Zona: lavora dove pagano (no geo target fissa)
 - Settore: freelance digital (siti web + social management)
-- Brand: CORE. digital agency (ex TeoDigital)
+- Brand: COREFLUX STUDIO digital agency (ex TeoDigital)
 - Sito portfolio: `~/wingman/portfolio.html` → live su `https://hypn0sis.github.io/core-agency/portfolio.html`
 
 ## Pricing canonical — V2 (source of truth: pricing.html)
@@ -22,7 +22,7 @@ Sei invocato da `claude-delegate` (profile Hermes Agent worker) per task comples
   - Custodia €30/mese: 1 modifica, 1 landing, no blog, Try&Buy 2 post IG/sett (2 mesi)
   - Cura €59/mese: 2 modifiche, 2 landing, 2 blog, keyword research, Try&Buy 2 post IG+FB/sett (2 mesi)
   - Crescita €89/mese: 10 modifiche, 4 landing, 4 blog, analytics settimanale, Try&Buy 2 post IG+FB/sett (2 mesi)
-  - Manutenzione SOLO per siti realizzati da CORE. - non gestiamo siti di terzi
+  - Manutenzione SOLO per siti realizzati da COREFLUX STUDIO - non gestiamo siti di terzi
 - **Social management** (standalone o abbinato a manutenzione - NON richiede piano attivo):
   - Starter: €89/mese | €399/6m | €749/12m (1 mese gratis su 12m)
   - Pro: €249/mese | €2.500/12m
@@ -38,7 +38,7 @@ Sei invocato da `claude-delegate` (profile Hermes Agent worker) per task comples
   - Dominio Locale: €151/mese | Avvio Completo (no sito): €92/mese
   - Year-2 loyalty: €109/mese
 - **Non compresi**: shooting foto/video, grafica stampa, e-commerce (preventivo separato)
-- **Proprieta' intellettuale**: sito rimane CORE. Dominio sempre del cliente (trasferibile gratis).
+- **Proprieta' intellettuale**: sito rimane COREFLUX STUDIO Dominio sempre del cliente (trasferibile gratis).
 
 Dettagli completi: `~/wingman/offerta-servizi-digitali.md`
 Regole bundle custom: `~/wingman/offerta-bundle-custom.md`
@@ -167,7 +167,7 @@ Se task body manca info critica (es. "refactor portfolio" ma non specifica stile
 
 ## Aggiornamenti documentazione
 
-Questa CLAUDE.md aggiornata 2026-06-17 (V2 pricing: social standalone OK + mensile OK + prezzi aggiornati + brand CORE.). Per stato corrente:
+Questa CLAUDE.md aggiornata 2026-06-17 (V2 pricing: social standalone OK + mensile OK + prezzi aggiornati + brand COREFLUX STUDIO). Per stato corrente:
 ```bash
 ls -lt ~/wingman/vault-global-knowledge/wiki/stack/
 cat ~/wingman/AGENTS.md | head -50

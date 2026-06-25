@@ -1,9 +1,9 @@
 ---
-title: "CORE. Pricing Strategy - V2"
+title: "COREFLUX STUDIO Pricing Strategy - V2"
 part_of: "[[05 - Reference]]"
 created: Tuesday 17th June 2026 11:00
 updated: Wednesday 18th June 2026 09:00
-use_for: 💰 Working notes on CORE. pricing strategy, bundle logic, social packaging
+use_for: 💰 Working notes on COREFLUX STUDIO pricing strategy, bundle logic, social packaging
 creating: 💰 Pricing brainstorm and decision workspace
 obsidianUIMode: preview
 obsidianEditingMode: live
@@ -17,7 +17,7 @@ status: in-progress
 version: v2
 ---
 
-# CORE. Pricing Strategy - V2
+# COREFLUX STUDIO Pricing Strategy - V2
 
 > V2 - incorpora note utente da V1. Decisioni bloccate segnate LOCKED. Aperto solo ciò che serve ancora.
 
@@ -188,7 +188,7 @@ Questo approccio segue il framework Jobs-to-be-Done del marketing-strategist: il
 
 Hero badge su Crescita Completa. Dominio Locale = premium anchor (+€30/mo per tier superiore su entrambi i servizi).
 
-#### Per clienti con sito già realizzato da CORE.:
+#### Per clienti con sito già realizzato da COREFLUX STUDIO:
 
 | Bundle | Incluso | Mensile | Upfront annuale |
 |---|---|---|---|
@@ -245,9 +245,9 @@ L'occhio del nuovo cliente finisce su Crescita Completa e pensa: "€121/mo per 
 | 6 | Clausola protezione €500 su "sito incluso" | **LOCKED** | Obbligatoria |
 | 7 | Try&Buy solo in B2/B3 (no su social bundle) | **LOCKED** | Nel social bundle è già il servizio |
 | 8 | Scenario F: NO tier coupling rigido | **LOCKED** | Salto Tier1→Tier2 +114%, blocca funnel |
-| 10 | Avvio Completo: NO sito incluso, solo Custodia+Social | **LOCKED** | Target: ex Scenario A (sito CORE. già pagato). Non per siti esterni (Scenario D). |
+| 10 | Avvio Completo: NO sito incluso, solo Custodia+Social | **LOCKED** | Target: ex Scenario A (sito COREFLUX STUDIO già pagato). Non per siti esterni (Scenario D). |
 | 11 | "Il sito rimarrà per sempre tuo" in ogni comunicazione | **LOCKED** | Controclausa penale: proprietà non dipende da pagamento |
-| 9 | Dominio CORE. | **DEFERRED** | .md non disponibile, ricercare alternative |
+| 9 | Dominio COREFLUX STUDIO | **DEFERRED** | .md non disponibile, ricercare alternative |
 
 ---
 
@@ -307,7 +307,7 @@ Lead NON convertibile se nel form si legge:
 ### Cosa NON promettere
 
 - Nessuna manutenzione o fix sul sito attuale
-- L'output e' go/no-go per lavorare con CORE., non un report tecnico che il cliente porta altrove
+- L'output e' go/no-go per lavorare con COREFLUX STUDIO, non un report tecnico che il cliente porta altrove
 - La migrazione non e' garantita come raccomandazione
 - Non esiste un prezzo di manutenzione standalone: se non sono aperti alla migrazione, la conversazione non serve
 

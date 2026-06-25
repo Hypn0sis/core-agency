@@ -43,8 +43,14 @@ def main():
     nome = lead.get('Nome Attivita','').strip()
     cat = lead.get('Categoria','').strip()
     indir = lead.get('Indirizzo','').strip()
-    citta = next((w for w in ['Bergamo','Cornaredo','Celadina','Colognola','Milano']
-                  if w.lower() in indir.lower()), 'Bergamo')
+    # extract city from Italian address: "Via X, CAP Citta (BG)" or "Via X, Citta"
+    _cap_match = re.search(r'\d{5}\s+([A-Za-z\xc0-\xff][A-Za-z\xc0-\xff\s]+?)(?:\s*\(|,|$)', indir)
+    if _cap_match:
+        citta = _cap_match.group(1).strip().title()
+    else:
+        # fallback: last comma-separated segment
+        _parts = [p.strip() for p in indir.split(',') if p.strip()]
+        citta = _parts[-1].title() if _parts else 'Italia'
     slug = f'lead-{num}-{slugify(nome)}'
     vault_dir = os.path.join(VAULT_SALES, slug)
     os.makedirs(vault_dir, exist_ok=True)

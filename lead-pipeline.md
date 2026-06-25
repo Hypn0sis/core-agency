@@ -1,11 +1,11 @@
 ---
 name: lead-pipeline
-description: Documento operativo per la gestione della pipeline lead B2B locale - CORE. digital agency
+description: Documento operativo per la gestione della pipeline lead B2B locale - COREFLUX STUDIO digital agency
 board: sales
 type: atomic
 ---
 
-# Lead Pipeline Operativa - CORE. digital agency
+# Lead Pipeline Operativa - COREFLUX STUDIO digital agency
 
 > Documento operativo. Ogni sezione e' uno step eseguibile. Leggi, apri il browser, inizia.
 
@@ -121,7 +121,7 @@ type: atomic
 | Startup Italiane | `startup.registroimprese.it` | Da ESCLUDERE (non target PMI mature) |
 | ATECO Explorer | `ateco.infocamere.it` | Trova il codice ATECO esatto per categoria |
 
-**Codici ATECO prioritari per CORE.**
+**Codici ATECO prioritari per COREFLUX STUDIO**
 
 | ATECO | Descrizione |
 |-------|-------------|
@@ -193,14 +193,14 @@ Somma i punti dai criteri:
 - **12+ punti** -> HOT
 - **8-11 punti** -> CALDO
 - **4-7 punti** -> TIEPIDO
-- **0-3 punti** -> FREDDO (sito gia' curato, non serve CORE.)
+- **0-3 punti** -> FREDDO (sito gia' curato, non serve COREFLUX STUDIO)
 
 ---
 
 ### Scheda Lead Tipo (template compilabile)
 
 ```
-SCHEDA LEAD - CORE. digital agency
+SCHEDA LEAD - COREFLUX STUDIO digital agency
 ===================================
 Data raccolta:         __/__/____
 Operatore:             ____________
@@ -389,10 +389,10 @@ G15+ - ARCHIVIA se nessuna risposta
 | Email | Ultima opzione. Solo se nessun contatto diretto | Professionale, oggetto specifico |
 
 Messaggio tipo telefono:
-> "Ciao, sono [nome] di CORE., mi occupo di siti web e social per attivita' come la sua. Ho visto che [attivita'] non ha ancora un sito - volevo capire se e' qualcosa a cui ha mai pensato. Mi bastano 10 minuti, niente impegno."
+> "Ciao, sono [nome] di COREFLUX STUDIO, mi occupo di siti web e social per attivita' come la sua. Ho visto che [attivita'] non ha ancora un sito - volevo capire se e' qualcosa a cui ha mai pensato. Mi bastano 10 minuti, niente impegno."
 
 Messaggio tipo WhatsApp:
-> "Ciao [nome], sono [nome tuo] di CORE. - agenzia digitale locale. Ho visto [attivita'] su Maps e non ha ancora un sito. Lavoriamo con piccole attivita' come la sua per farlo senza pensieri. Posso mandarle due righe di come funziona?"
+> "Ciao [nome], sono [nome tuo] di COREFLUX STUDIO - agenzia digitale locale. Ho visto [attivita'] su Maps e non ha ancora un sito. Lavoriamo con piccole attivita' come la sua per farlo senza pensieri. Posso mandarle due righe di come funziona?"
 
 Regole G0:
 - NON mandare listino prezzi
@@ -541,7 +541,7 @@ Call conoscitiva (30 min)
 
 **Scenario D** si attiva quando, durante la verifica web (Step 2 della sezione 3), si identifica che il lead ha GIA' un sito realizzato da un'altra agenzia o freelance.
 
-Regola ferrea CORE.: la manutenzione si offre SOLO per siti realizzati da CORE. Non gestiamo siti di terzi.
+Regola ferrea COREFLUX STUDIO: la manutenzione si offre SOLO per siti realizzati da COREFLUX STUDIO Non gestiamo siti di terzi.
 
 ### Come identificarlo durante il prospecting
 
@@ -565,7 +565,7 @@ Lead identificato -> Step 2 -> Sito presente e funzionante di terzi
          FLAG SCENARIO D nella scheda lead
               |
               v
-     NON offrire manutenzione CORE.
+     NON offrire manutenzione COREFLUX STUDIO
               |
               v
    Valuta: il sito e' davvero buono?
@@ -585,7 +585,7 @@ Quando il sito c'e' ma e' obsoleto (voto 2-3/5):
 Se accettano la valutazione gratuita:
 1. Analisi sito esistente (tecnologia, contenuti, SEO base)
 2. Proposta di refactoring o rifacimento completo
-3. Se accettano il rifacimento -> diventano clienti CORE. -> da quel momento si applica la manutenzione standard
+3. Se accettano il rifacimento -> diventano clienti COREFLUX STUDIO -> da quel momento si applica la manutenzione standard
 
 **Cosa NON fare in Scenario D**
 - NON proporre manutenzione su sito di terzi in nessun caso
@@ -602,5 +602,5 @@ Aggiungi una colonna "Scenario D" con valori:
 
 ---
 
-*Documento operativo CORE. - Aggiornato 2026-06-18*
+*Documento operativo COREFLUX STUDIO - Aggiornato 2026-06-18*
 *Uso interno - Non distribuire*

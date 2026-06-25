@@ -1,4 +1,4 @@
-# Pipeline Lead Generation v2 — CORE.
+# Pipeline Lead Generation v2 — COREFLUX STUDIO
 ## Parametri, criteri e processo verificato
 
 ---

@@ -28,9 +28,10 @@ def main():
     db = sqlite3.connect(KANBAN_DB)
     db.execute(
         'INSERT INTO tasks (id,title,body,assignee,status,priority,created_at,'
-        'workspace_kind,consecutive_failures,goal_mode) VALUES (?,?,?,?,?,?,?,?,?,?)',
+        'workspace_kind,consecutive_failures,goal_mode,model_override) VALUES (?,?,?,?,?,?,?,?,?,?,?)',
         (tid, 'Lead pipeline: preview + hookmail', body,
-         'sales-pipeline-runner', 'todo', 0, now, 'scratch', 0, 1)
+         'sales-pipeline-runner', 'todo', 0, now, 'scratch', 0, 1,
+         'deepseek-v4-flash-free')
     )
     db.commit(); db.close()
 

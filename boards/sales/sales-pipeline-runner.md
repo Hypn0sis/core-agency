@@ -36,71 +36,106 @@ Output JSON → estrai: lead_id, nome, categoria, citta, slug, indirizzo, telefo
 
 Se errore → kanban_block(reason="pick-lead failed: {errore}")
 
-### STEP 3 — Scraping multi-source
+### STEP 3 — Scraping multi-source + immagini
 Raccogli DATI FATTUALI (non inventare nulla). Usa WebSearch + WebFetch (Firecrawl).
 
 **A) Sito web (se esiste):**
 ```
-WebSearch: "{nome} {citta} sito web"
-# Se URL trovato → WebFetch(url) per estrarre tel, indirizzo, orari, P.IVA, email
+WebSearch: "{nome} {citta} sito web ufficiale"
+# Se URL trovato → WebFetch(url) per estrarre tel, indirizzo, orari, P.IVA, email, prodotti specifici, piatti del menu
 ```
 
 **B) Google Maps:**
 ```
-WebSearch: "{nome} {citta} google maps stelle recensioni orari"
-# Estrai: rating, n_recensioni, orari tipici, indirizzo completo
+WebSearch: "{nome} {citta} google maps recensioni orari"
+# Estrai: rating, n_recensioni, orari, indirizzo completo, foto se disponibili
 ```
 
 **C) Instagram:**
 ```
 # Se handle noto (dal profile.md):
 WebFetch("https://www.instagram.com/{handle}/")
-# Estrai: follower, bio, ultimo post (data)
-# Se non noto:
+# Estrai META TAGS: og:image (URL immagine profilo), og:description (bio)
+# Estrai da HTML: follower count, bio, ultimi post visibili, prodotti/piatti specifici citati
+# Cerca tag <meta property="og:image" content="..."> nel HTML → questa è LOGO_IMG_URL
+# Cerca prima foto post → potenziale HERO_IMG_URL
+
+# Se handle non noto:
 WebSearch: "{nome} {citta} instagram"
-# Estrai handle dall'URL
+# Estrai handle dall'URL risultato
 ```
 
 **D) PagineGialle:**
 ```
-WebSearch: "{nome} {citta} paginegialle telefono indirizzo"
+WebSearch: "{nome} {citta} paginegialle"
 # Estrai: tel, indirizzo, orari se non già trovati
 ```
 
-Compila tokens.json con i dati trovati:
+**E) Immagini per template (OBBLIGATORIO per sito-alimentari-premium.html):**
+
+Strategia in ordine di priorità:
+1. **Instagram og:image** → LOGO_IMG_URL (foto profilo reale del business)
+2. **Instagram primo post** → HERO_IMG_URL se trovato nella pagina IG
+3. **Fallback Unsplash per categoria** se immagini IG non disponibili:
+
+| CATEGORIA | HERO_IMG_URL | STORIA_IMG_URL | SELEZIONE_IMG_URL |
+|-----------|-------------|----------------|-------------------|
+| macelleria/salumeria/gastronomia | `https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&fit=crop&auto=format` | `https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80&fit=crop&auto=format` | `https://images.unsplash.com/photo-1561043433-aaf687c4cf04?w=900&q=80&fit=crop&auto=format` |
+| panificio/forno/pasticceria | `https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=80&fit=crop&auto=format` | `https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=900&q=80&fit=crop&auto=format` | `https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=900&q=80&fit=crop&auto=format` |
+| ristorante/trattoria/pizzeria | `https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&fit=crop&auto=format` | `https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80&fit=crop&auto=format` | `https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&q=80&fit=crop&auto=format` |
+| parrucchiere/barbiere/estetista | `https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=80&fit=crop&auto=format` | `https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&q=80&fit=crop&auto=format` | `https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&q=80&fit=crop&auto=format` |
+| default | `https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&q=80&fit=crop&auto=format` | `https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&fit=crop&auto=format` | `https://images.unsplash.com/photo-1553484771-047a44eee27b?w=900&q=80&fit=crop&auto=format` |
+
+Nota: LOGO_IMG_URL → usa og:image di Instagram se trovata, altrimenti `""` (nascosto con onerror).
+
+**DATI SPECIFICI DA ESTRARRE per copy NON generico:**
+- Prodotti/specialità SPECIFICI citati su IG, sito, o Maps (es: "porchetta fatta in casa", "grana padano DOP")
+- Citazioni REALI dalla bio IG o dal sito
+- Anno fondazione REALE (cerca in About, sito, Maps)
+- Numero recensioni e rating reale
+- Specialità stagionali o piatti tipici SPECIFICI
+
+Compila tokens.json con TUTTI i dati trovati:
 ```json
 {
   "NOME": "nome completo attivita",
   "NOME_BREVE": "nome breve (prima parola o soprannome)",
-  "ANNO": "anno fondazione o anno corrente",
+  "ANNO": "anno fondazione REALE o anno corrente",
   "CITTA": "citta",
   "PROVINCIA": "BG",
   "INDIRIZZO": "indirizzo completo",
   "TEL_HREF": "tel:+39XXXXXXXXXX",
   "TEL_DISPLAY": "+39 XXX XXX XXXX",
   "WHATSAPP": "+39XXXXXXXXXX",
-  "FACEBOOK_URL": "https://www.facebook.com/...",
+  "FACEBOOK_URL": "",
   "INSTAGRAM_URL": "https://www.instagram.com/...",
   "INSTAGRAM_HANDLE": "@handle",
-  "ORARI_HTML": "<li>Lun-Ven: 9:00-13:00 / 15:00-19:00</li>",
+  "ORARI_HTML": "<li>Lun-Sab: 7:30-13:00 / 16:00-19:30</li>",
   "PIVA": "",
   "EMAIL": "",
   "CATEGORIA": "categoria merceologica",
   "_template_hint": "scelto dopo step 4",
-  "_slug": "preview-{slug}"
+  "_slug": "preview-{slug}",
+  "LOGO_IMG_URL": "URL og:image Instagram o stringa vuota",
+  "HERO_IMG_URL": "URL immagine hero (IG post o Unsplash fallback)",
+  "STORIA_IMG_URL": "URL immagine storia (Unsplash fallback per categoria)",
+  "SELEZIONE_IMG_URL": "URL immagine selezione (Unsplash fallback per categoria)",
+  "_scraped_specifics": "lista virgola-separata di dati specifici trovati: prodotti reali, anno, citazioni bio"
 }
 ```
 
-**Fallback policy (NON inventare dati di contatto reali):**
+**Fallback policy:**
 | Campo | Non trovato → |
 |-------|--------------|
-| NOME, CITTA | BLOCCA — impossibile senza questi |
-| TEL_HREF | `tel:+39` (placeholder) |
-| INDIRIZZO | usa CITTA come fallback |
+| NOME, CITTA | BLOCCA |
+| TEL_HREF | `tel:+39` |
+| INDIRIZZO | usa CITTA |
 | ANNO | anno corrente |
-| ORARI_HTML | orari tipici per CATEGORIA (vedi sotto) |
-| FACEBOOK_URL, INSTAGRAM_URL | `""` (stringa vuota) |
+| ORARI_HTML | orari tipici per CATEGORIA |
+| FACEBOOK_URL, INSTAGRAM_URL | `""` |
 | PIVA, EMAIL | `""` |
+| HERO_IMG_URL, STORIA_IMG_URL, SELEZIONE_IMG_URL | Unsplash fallback per categoria (tabella sopra) |
+| LOGO_IMG_URL | `""` |
 
 Orari tipici per categoria:
 - macelleria/salumeria: `<li>Lun-Sab: 7:30-13:00 / 16:00-19:30</li>`
@@ -132,6 +167,9 @@ python3 ~/wingman/scripts/inject-tokens.py \
 Output JSON ha `remaining[]`: lista token non ancora riempiti.
 
 ### STEP 5 — Genera LLM copy per token rimanenti
+IMPORTANTE: usa i dati SPECIFICI da `_scraped_specifics` — NON generare copy generico uguale per ogni macelleria.
+Se hai prodotti reali, citali. Se hai bio IG, parafrasala. Se hai anno reale, usalo.
+
 Per ogni token in `remaining[]`, genera il valore appropriato:
 
 | Token | Come generare |

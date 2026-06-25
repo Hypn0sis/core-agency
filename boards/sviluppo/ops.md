@@ -62,7 +62,7 @@ PREVIEW_DIR="/tmp/preview-${SLUG}"
 REPO="Hypn0sis/${SLUG}"
 
 # 1. Crea repo se non esiste
-gh repo create "${REPO}" --public --description "Preview site CORE." 2>/dev/null || true
+gh repo create "${REPO}" --public --description "Preview site COREFLUX STUDIO" 2>/dev/null || true
 
 # 2. Init e push
 cd "${PREVIEW_DIR}"

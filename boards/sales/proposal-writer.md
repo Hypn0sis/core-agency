@@ -80,7 +80,7 @@ E gia online, personalizzata per la tua attivita'. Basta che tu mi dica di si e 
 Possiamo fare una chiamata veloce questa settimana?
 
 Matteo
-CORE. — siti per attivita' locali
+COREFLUX STUDIO — siti per attivita' locali
 ```
 
 ### Regole

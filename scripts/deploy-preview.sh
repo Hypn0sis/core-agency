@@ -17,14 +17,14 @@ fi
 echo "Deploying ${SLUG} to GitHub Pages..."
 
 # Create repo if not exists
-gh repo create "${REPO}" --public --description "Preview site CORE." 2>/dev/null || true
+gh repo create "${REPO}" --public --description "Preview site COREFLUX STUDIO" 2>/dev/null || true
 
 # Init git and push
 cd "${PREVIEW_DIR}"
 [ -d .git ] && rm -rf .git
 git init -q
 git add index.html
-git -c user.email="wingman@core.agency" -c user.name="Wingman" \
+git -c user.email="wingman@coreflux.studio" -c user.name="Wingman" \
     commit -q -m "preview"
 git branch -M main
 git remote add origin "https://github.com/${REPO}.git"
