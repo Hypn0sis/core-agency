@@ -283,3 +283,11 @@ kanban_complete(summary="## Mini-Report pipeline-runner
 - Non saltare step o cambiare ordine
 - Non deployare su dominio custom (solo GitHub Pages per preview)
 - Non fare kanban_complete prima che gws send abbia risposto con successo
+
+## OBBLIGATORIO — PROTOCOLLO KANBAN
+
+**PRIMA DI TERMINARE IL TASK, DEVI SEMPRE:**
+- Chiamare `kanban_complete` se il task e' completato
+- Chiamare `kanban_block` se il task e' bloccato o incompleto
+
+**MAI uscire senza chiamare uno dei due. Se non sai cosa fare: `kanban_block("motivo")`.**
