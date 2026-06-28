@@ -167,32 +167,90 @@ python3 ~/wingman/scripts/inject-tokens.py \
 Output JSON ha `remaining[]`: lista token non ancora riempiti.
 
 ### STEP 5 — Genera LLM copy per token rimanenti
-IMPORTANTE: usa i dati SPECIFICI da `_scraped_specifics` — NON generare copy generico uguale per ogni macelleria.
-Se hai prodotti reali, citali. Se hai bio IG, parafrasala. Se hai anno reale, usalo.
 
-Per ogni token in `remaining[]`, genera il valore appropriato:
+**REGOLA CRITICA**: usa dati REALI da `_scraped_specifics` e `profile.md`. NON generare copy
+generico uguale per ogni business. Se il cliente fa pane = scrivi pane, NON carne o pollo.
+I token di contenuto (PRODOTTI_CARDS_HTML, SERVIZI_HTML, ecc.) DEVONO riflettere la categoria
+reale e i prodotti/servizi effettivamente offerti dal cliente.
+
+**PRIMA DI GENERARE**: identifica la CATEGORIA del cliente e tienila in mente per ogni token.
+
+#### Token comuni a tutti i template
 
 | Token | Come generare |
 |-------|--------------|
 | `HERO_EYEBROW` | 2-4 parole, tipo attivita + citta. Es: "Pasticceria artigianale a Bergamo" |
-| `HERO_TITLE_HTML` | Tagline emotiva breve, puoi usare `<br>` per line break. Es: "Il sapore<br>autentico" |
-| `HERO_BODY` | 1-2 frasi professionali, specifiche per settore. Max 30 parole. |
-| `STORIA_QUOTE` | Frase memorabile prima persona da titolare immaginario. Max 20 parole. |
-| `STORIA_BODY` | 2-3 frasi storia aziendale generica ma credibile per settore. |
-| `MENU_HTML` | 4-6 `<li>` con piatti credibili per categoria ristorante. Es: `<li>Tagliatelle al ragu: €14</li>` |
-| `SERVIZI_HTML` | 4-6 `<li>` servizi. Es: `<li>Taglio donna</li>` |
-| `COLLECTION_HTML` | 4-6 `<li>` prodotti/collezioni. Es: `<li>Salumi artigianali</li>` |
-| `ORARI_HTML` | Gia generato in step 3, ma se manca usa orari tipici per categoria |
+| `HERO_TITLE_HTML` | Tagline emotiva breve. Puoi usare `<br>` per line break. Es: "Il sapore<br>autentico" |
+| `HERO_BODY` | 1-2 frasi specifiche per settore. Max 30 parole. NON usare frasi da altra categoria. |
+| `HERO_SUB` | 1-2 frasi proposta valore (luxury/servizi). Categoria-specifica. |
+| `PRODOTTI_TITLE` | Titolo sezione prodotti/servizi (es. "I nostri prodotti", "Cosa offriamo") |
+| `PRODOTTI_SUBTITLE` | Sottotitolo (es. "Selezionati ogni giorno") |
+| `STORIA_TITLE` | Titolo sezione storia (max 8 parole) |
+| `STORIA_BODY` | 2-3 frasi storia aziendale SPECIFICA (usa anno, fondatori, dati scraped). |
+| `STORIA_QUOTE` | Frase prima persona titolare immaginario, max 20 parole. |
+| `STORIA_FOTO_LABEL` | Label foto storica, es: `La bottega nel {{ANNO}}<br><span style="font-size:.75rem;font-style:normal">Archivio di famiglia</span>` |
+| `WA_CTA_TITLE` | Titolo CTA WhatsApp (es. "Scrivici su WhatsApp") |
+| `WA_CTA_SUB` | Sottotitolo CTA (es. "Risposta in meno di un'ora") |
+| `CTA_TITLE` | Titolo CTA finale |
+| `CTA_BODY` | Sottotitolo CTA finale |
+| `FOOTER_NOTE` | Riga footer (es. "P.IVA + indirizzo") |
+| `TIPO_ATTIVITA` | Tipo attivita con separatore (es. "Panificio artigianale · Bergamo") |
+| `TAGLINE_NAV` | Tagline sotto nome in nav (es. "Dal 1978 · Bergamo") |
+| `PAGE_TITLE` | Titolo SEO (es. "Panificio Rossi — Pane artigianale a Bergamo") |
+| `META_DESC` | Meta description SEO (max 155 char, categoria-specifica) |
+| `EMOJI_ICON` | Emoji favicon coerente con categoria (🥖 panificio, 🥩 macelleria, ✂️ parrucchiere) |
+| `COLOR_ACCENT` | Colore brand (es. #8B4513 per panificio, #C41E0E per macelleria) |
+| `COLOR_ACCENT_LIGHT` | Variante chiara del colore brand |
+| `COLOR_GOLD` | Colore secondario oro/accent |
+| `COLOR_GOLD_DIM` | Colore secondario con alpha (es. rgba(196,154,74,.15)) |
 
-Dopo generazione, fai seconda injection:
-Crea un file JSON temporaneo con i valori generati e richiama inject-tokens.py,
-OPPURE usa sed per ogni token rimanente.
+#### Token di contenuto categoria-specifici (GENERARE SEMPRE)
+
+| Token | Template | Come generare |
+|-------|----------|--------------|
+| `PRODOTTI_CARDS_HTML` | alimentari | 3 `.prodotto-card` con prodotti REALI del cliente. Struttura: `<div class="prodotto-card" role="listitem"><div class="prodotto-icon">[emoji]</div><div class="prodotto-name">[categoria prodotto]</div><div class="prodotto-body">[descrizione 1-2 frasi]</div><div class="prodotto-items"><span class="prodotto-tag">[tag]</span>...</div></div>`. Panificio = pane/focacce/biscotti. Pasticceria = torte/mignon/cioccolatini. NON usare macelleria/polleria se cliente non e macellaio. |
+| `VALORI_CARDS_HTML` | alimentari | 4 `.valore-card` con valori REALI coerenti con categoria. `<div class="valore-card" role="listitem"><div class="valore-title">[Valore]</div><div class="valore-body">[Desc]</div></div>`. Adatta: panificio=lievitazione naturale/km0/fresco ogni mattina, pasticceria=ricette tradizionali/ingredienti selezionati/fatto a mano. |
+| `SELEZIONE_TITLE` | alimentari | Titolo sezione differenziazione (categoria-specifico, max 8 parole) |
+| `SELEZIONE_INTRO` | alimentari | Frase intro (1-2 righe, spiega il metodo di selezione/qualita del cliente) |
+| `SELEZIONE_PILLARS_HTML` | alimentari | 3 `.pillar` con differenziatori REALI. `<div class="pillar"><div class="pillar-icon">[emoji]</div><div class="pillar-body"><div class="pillar-title">[Titolo]</div><div class="pillar-text">[Testo]</div></div></div>`. Adatta icon/titolo/testo: panificio=🌾farine/🕐lievitazione lenta/📍km0, pescheria=🐟porto/❄️freschezza/🗺️origine. |
+| `GALLERY_ITEMS_HTML` | benessere | 4 `.gallery-item` con label servizi REALI. `<div class="gallery-item g[1-4]" role="listitem"><div class="gallery-label">[Servizio]</div></div>`. Hair salon=Taglio/Colore/Trattamenti/Styling. Centro estetico=Viso/Corpo/Nail/Massaggio. |
+| `SERVIZI_HTML` | benessere/servizi | 4-6 `<li>` servizi reali del cliente. |
+| `MENU_HTML` | ristorazione | 4-6 `<li>` piatti del menu con prezzo. `<li>[Piatto]: €[prezzo]</li>`. Usa piatti coerenti con tipo locale (trattoria=pasta, seafood=pesce, etc.). |
+| `MENU_STAGIONE` | ristorazione | Stagione corrente (es. "Menu estate 2026") |
+| `MENU_SECTION_TITLE` | ristorazione | Titolo sezione menu |
+| `ABOUT_STRIP_HTML` | ristorazione | Strip about con 3-4 celle info |
+| `PRENOTAZIONI_NOTE` | ristorazione | Info prenotazioni da orari reali scraped |
+| `COLLECTION_HTML` | luxury | 4-6 elementi collezione |
+| `COLLECTION_STAGIONE` | luxury | Stagione collezione (es. "Autunno 2026") |
+| `HERO_SUB` | luxury | Sottotitolo hero (proposta valore, categoria-specifica) |
+| `ABOUT_STORY_HTML` | luxury | 2 `<p>` storia del cliente (dati reali o verosimili per categoria) |
+| `MARQUEE_ITEMS_HTML` | luxury | Elementi marquee strip |
+| `CERT_BADGES_HTML` | servizi | 3-4 cert-badge coerenti con categoria servizio. Elettricista=D.M.37/ISO/Garanzia. Idraulico=UNI7129/RC. Geometra=Ordine/parcella. |
+| `METRICHE_HTML` | servizi | 4 metric-cell con dati REALI o plausibili per categoria. `<div class="metric-cell" role="listitem"><div class="metric-num">[N]</div><div class="metric-label">[label]</div></div>` |
+| `SERVIZI_SECTION_TITLE` | servizi | Titolo sezione servizi (categoria-specifico) |
+| `SERVIZI_SECTION_SUB` | servizi | Sottotitolo sezione servizi |
+| `CERTIFICAZIONI_TITLE` | servizi | Titolo sezione certificazioni |
+| `CERTIFICAZIONI_STRIP_HTML` | servizi | cert-item strip. `<div class="cert-item"><div class="cert-dot"></div><div class="cert-item-text">[linea1]<br>[linea2]</div></div>` + `<div class="cert-divider"></div>` tra ciascuno. Categoria-specifiche. |
+| `CHECK_LIST_HTML` | servizi | 4-5 check-item. `<div class="check-item"><div class="check-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#1e90ff" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>[Garanzia]</div>` |
+| `PREVENTIVO_NOTE` | servizi | Testo sezione preventivo (categoria-specifico) |
+| `STAT_1_NUM` | tutti | Rating stelle Google (da scraping, es. 4.8) |
+| `STAT_2_NUM` | tutti | Numero recensioni (da scraping, es. 132) |
+| `RECENSIONI_HTML` | tutti | 3 review-card. `<div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"[testo]"</p><div class="review-meta"><div class="review-author">[Nome B.]</div><div class="review-detail">[tipo servizio categoria-specifico] · {{CITTA}}</div></div></div>`. NON inventare nomi propri completi. Il tipo servizio deve corrispondere alla categoria reale del cliente. |
+
+**Dopo generazione**, fai seconda injection:
+```bash
+python3 ~/wingman/scripts/inject-tokens.py \
+  ~/wingman/vault-sales/{lead_id}/tokens-llm.json \
+  /tmp/preview-{slug}/index.html \
+  /tmp/preview-{slug}/index.html
+```
 
 Verifica finale:
 ```bash
 grep -c '{{' /tmp/preview-{slug}/index.html
-# Deve ritornare 0. Se >0: sostituisci manualmente i token rimasti con placeholder.
+# Deve ritornare 0. Se >0: sostituisci manualmente i token rimasti con valori vuoti o placeholder.
 ```
+
 
 ### STEP 6 — Deploy GitHub Pages
 ```bash
