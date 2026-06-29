@@ -7,7 +7,7 @@
 
 ## Regole MUST (violazione = no deal)
 
-1. **La manutenzione presuppone un sito CORE. attivo.**
+1. **La manutenzione presuppone un sito COREFLUX STUDIO attivo.**
    Non si gestisce manutenzione su siti di terzi. Il sito e' il prerequisito tecnico e contrattuale.
 
 2. **Social vendibile standalone o abbinato a manutenzione.**
@@ -30,7 +30,7 @@
    Non si inventano servizi custom: no shooting foto/video professionale, no grafica stampa, no campagne email, no SEO tecnico avanzato, no sviluppo app, no e-commerce base (preventivo separato), no trasferte fisiche.
    Se il cliente chiede qualcosa fuori dagli SKU: "non e' nel nostro perimetro standard, per questo facciamo preventivo separato."
 
-7. **Il sito e' proprieta' intellettuale CORE.**
+7. **Il sito e' proprieta' intellettuale COREFLUX STUDIO.**
    Non si cedono file sorgente del sito ne' codice. Il dominio e' sempre del cliente (trasferibile gratis a chiusura). Il pannello admin del CMS e' sempre accessibile al cliente.
 
 8. **Contratto minimo se include social: 6 mesi.**
