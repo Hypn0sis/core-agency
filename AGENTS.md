@@ -5,6 +5,17 @@ Architettura multi-board con Wingman come autorità suprema.
 
 > **Nota architetturale**: curator e summarizer sono profile GLOBALI (1 ciascuno), non per-board. Vengono referenziati via `assignee curator` / `assignee summarizer` da qualsiasi board. I 4 dispatcher sono embedded nei profile base di ciascun board.
 
+
+## Architettura Deploy Siti Cliente
+
+| Tipo | Hosting | CI/CD | URL pattern |
+|------|---------|-------|-------------|
+| Demo lead | CF Pages direct upload | pipeline wrangler CLI | `{slug}.coreflux.studio` |
+| Cliente acquista | CF Worker | GitHub repo Hypn0sis/{slug} + CF dashboard | dominio cliente |
+| Portfolio agency | CF Worker (core-agency) | push su `~/wingman/` = auto-deploy | `coreflux.studio` |
+
+**Sito portfolio** = `~/wingman/` clone di `Hypn0sis/core-agency` — push su master deploya su `coreflux.studio`.
+
 ## Struttura
 
 ```
