@@ -296,15 +296,15 @@ gws gmail +send \
 
 cercavo {TIPO_ATTIVITA_GENERICA} a {CITTA} su Google e non vi ho trovati. Brutta cosa per voi, buona scusa per me.
 
-E quello che capita ogni settimana a centinaia di attivita con un ottimo lavoro alle spalle ma senza visibilita online — le persone cercano, non vi trovano, vanno dalla concorrenza.
+Abbiamo appena lanciato il sito delle Macellerie Bergamaschi a Cornaredo. Zero pubblicita. 300 visite in due settimane, senza spendere un euro in pubblicita.
 
-Abbiamo appena lanciato il sito delle Macellerie Bergamaschi a Cornaredo. Zero pubblicita. 300 visite in due settimane.
-
-Ho costruito la stessa cosa per {NOME} — e gia online:
+Ho costruito la stessa cosa per {NOME}, gia online:
 
 $PREVIEW_URL
 
-Vale una chiacchierata?
+Questo mese sto selezionando 3 attivita nella zona a cui offro il sito a meta prezzo. Costo fisso, nessuna sorpresa. Se vi interessa, rispondete entro questa settimana.
+
+Vale una chiacchierata? Si o no?
 
 Teo
 CoreFlux Studio"
