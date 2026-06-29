@@ -372,3 +372,18 @@ python3 ~/wingman/scripts/auto-archive-previews.py
 - Chiamare `kanban_block` se il task e' bloccato o incompleto
 
 **MAI uscire senza chiamare uno dei due. Se non sai cosa fare: `kanban_block("motivo")`.**
+
+---
+
+## Lifecycle Sito — Da Demo a Cliente
+
+| Fase | URL | Hosting | CI/CD |
+|------|-----|---------|-------|
+| Demo lead | `{slug}.coreflux.studio` | CF Pages direct upload | Pipeline wrangler CLI (automatico) |
+| Cliente acquista | dominio cliente o `{slug}.coreflux.studio` | CF Worker | Repo GitHub Hypn0sis/{slug} collegato CF dashboard |
+| Manutenzione | idem | idem | push GitHub = deploy automatico |
+
+**Quando un cliente acquista**: escalate a sviluppo-ops per:
+1. Creare repo `Hypn0sis/{slug-cliente}` con `wrangler.toml`
+2. Collegare a CF Worker via CF dashboard (API token puo farlo: PATCH /pages/projects)
+3. Puntare dominio cliente su Cloudflare DNS

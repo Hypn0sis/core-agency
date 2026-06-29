@@ -13,7 +13,7 @@ Sei invocato da `claude-delegate` (profile Hermes Agent worker) per task comples
 - Zona: lavora dove pagano (no geo target fissa)
 - Settore: freelance digital (siti web + social management)
 - Brand: COREFLUX STUDIO digital agency (ex TeoDigital)
-- Sito portfolio: `~/wingman/portfolio.html` → live su `https://hypn0sis.github.io/core-agency/portfolio.html`
+- Sito portfolio: `~/wingman/portfolio.html` → live su `https://coreflux.studio/portfolio.html`
 
 ## Pricing canonical — V2 (source of truth: pricing.html)
 
@@ -42,7 +42,7 @@ Sei invocato da `claude-delegate` (profile Hermes Agent worker) per task comples
 
 Dettagli completi: `~/wingman/offerta-servizi-digitali.md`
 Regole bundle custom: `~/wingman/offerta-bundle-custom.md`
-Pricing page live: `~/wingman/pricing.html` → https://hypn0sis.github.io/core-agency/pricing.html
+Pricing page live: `~/wingman/pricing.html` → https://coreflux.studio/pricing.html
 NON inventare prezzi diversi da quelli sopra.
 
 ## Architettura multi-agent (4 board + cross)
@@ -88,7 +88,7 @@ Il tuo job: eseguire task pulito + restituire file path + summary chiaro nel JSO
 
 1. **Workdir**: `~/wingman/` per deliverable; `~/wingman/vault-*/` per knowledge
 2. **Output deliverable**: file path assoluto nel `result` JSON
-3. **Git portfolio**: `~/wingman/` e' clone di `Hypn0sis/core-agency` (GitHub Pages live). Push immediato per portfolio = deploy automatico
+3. **Git portfolio**: `~/wingman/` e' clone di `Hypn0sis/core-agency` (CF Pages live su coreflux.studio). Push immediato = deploy automatico su coreflux.studio
 4. **Git vault**: 6 vault hanno repo separati. Cron auto-push ogni 15 min; non serve commit manuale (ma puoi se vuoi tracciare delta esplicito)
 5. **NO build step** per portfolio/landing: HTML statico + Tailwind Play CDN + Alpine.js (opzionale) + animazioni CSS o Motion One/Framer Motion via CDN
 6. **NO mai**: jQuery, Bootstrap, semantic-ui, comic sans, stock photos generiche unsplash
@@ -117,7 +117,7 @@ Il tuo job: eseguire task pulito + restituire file path + summary chiaro nel JSO
 
 | Cosa | Path |
 |------|------|
-| Portfolio | `~/wingman/portfolio.html` (deploy GitHub Pages immediato post-push) |
+| Portfolio | `~/wingman/portfolio.html` (deploy automatico su coreflux.studio post-push) |
 | Brochure | `~/wingman/brochure.html` o `brochure.pdf` |
 | Sito cliente | `~/wingman/{cliente-slug}.html` o `~/wingman/{cliente-slug}/` |
 | Offerta | `~/wingman/offerta-*.md` |
@@ -143,10 +143,10 @@ Refactored portfolio.html: stack shadcn + Aceternity + Tailwind. 9 sezioni, anim
 - Palette: neutral zinc + accent #fb7185 (rose-400) per CTA
 - Typography: Inter sans + Instrument Serif per H1
 - Motion: Motion One via CDN, micro-interaction su CTA + scroll fade-in
-- Reasoning: stack moderno, no build, deploy GitHub Pages immediato
+- Reasoning: stack moderno, no build, deploy CF Pages automatico su coreflux.studio
 
 ## Next steps
-- Verifica visiva su https://hypn0sis.github.io/core-agency/portfolio.html
+- Verifica visiva su https://coreflux.studio/portfolio.html
 - Considerare aggiunta sezione testimonial quando disponibili
 ```
 
