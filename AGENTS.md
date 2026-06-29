@@ -112,7 +112,10 @@ Ogni board ha:
 | sales-pipeline-runner | Orchestrator pipeline lead-to-hookmail; scrape, build preview, deploy, email (autonomo) | custom
 | docs-writer | Playbook, script, battle cards, pricing history | awesome-claude-code-toolkit (technical-writer) |
 
-## Cross-Board Profiles (5)
+## Cross-Board Profiles (3 files + 2 global-only)
+
+> **3 profiles have dedicated .md board files**: claude-delegate, consistency-keeper, recruiter.
+> **2 profiles are global-only** (no dedicated files, referenced via `assignee curator` / `assignee summarizer` from any board): curator, summarizer.
 
 | Profile | Ruolo | Ispirato da |
 |---------|-------|-------------|

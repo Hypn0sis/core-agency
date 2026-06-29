@@ -261,58 +261,60 @@ echo "Preview URL: $PREVIEW_URL"
 
 Se deploy fallisce: continua comunque, segnala nel Mini-Report finale.
 
-### STEP 7 — Hookmail
+### STEP 7 — Hookmail (Brevo SMTP)
 
-> **STILE EMAIL — OBBLIGATORIO. NON deviare.**
-> - Usa ESATTAMENTE il body template qui sotto. NON generare testo alternativo.
-> - NO em dash (—). Se serve pausa: virgola o punto.
-> - NO frasi robotiche ("Mi permetto", "Ho avuto il piacere", "La contatto per").
-> - Paragrafi fluidi: NO a capo forzati dentro un paragrafo. Ogni paragrafo e una singola riga continua. Riga vuota tra paragrafi.
-> - NO markdown, NO asterischi, NO elenchi puntati nel body email.
-> - Subject: lowercase, corto (3-5 parole max), NON descrittivo — crea curiosita.
-> - Firma: "Teo\nCoreFlux Studio" — non "Matteo", non "COREFLUX STUDIO".
-> - Sostituisci tutti i token con valori reali da profile.md, NON placeholder letterali.
+> **Canonical email body**: `~/wingman/scripts/hookmail_body.py` (finalized copy, no LLM generation)
+> 
+> Email copy style (OBBLIGATORIO):
+> - NO em dash (—). Usa virgola o punto.
+> - NO robotiche frasi ("Mi permetto", "Ho avuto il piacere").
+> - Story-driven: curiosità + case study Bergamaschi + scarcità ("ho ancora un posto libero")
+> - Subject: lowercase, 3-5 parole, curiosità
+> - Firma: "Teo
+CoreFlux Studio"
+> - NO generico copy — personalizzato con {NOME}, {CITTA}, {TIPO}, {PREVIEW_URL}
+
+**Execution**:
 
 ```bash
-# DEDUPLICATION: lead gia contattato? -> skip
+# DEDUPLICATION: lead gia contattato?
 if [ -f ~/wingman/vault-sales/{lead_id}/outreach_log.md ]; then
   if grep -q "status: sent" ~/wingman/vault-sales/{lead_id}/outreach_log.md; then
-    echo "SKIP: lead gia contattato, procedi a STEP 8"
+    echo "SKIP: lead gia contattato → STEP 8"
     exit 0
   fi
 fi
 
-# Determina destinatario
-# Se mock_email nel task body -> usa mock_email (SEMPRE in modalita test)
-# Se mock_email assente -> usa email del lead (da profile.md), o skip se non disponibile
+# Set env vars for hookmail_body.py
+export NOME="{nome_da_profile}"
+export CITTA="{citta_da_profile}"
+export TIPO="{tipo_da_profile}"
+export PREVIEW_URL="$(cat ~/wingman/vault-sales/{lead_id}/preview_url.txt 2>/dev/null || echo '')"
 
-PREVIEW_URL=$(cat ~/wingman/vault-sales/{lead_id}/preview_url.txt 2>/dev/null || echo "")
+# Generate body (from finalized template)
+BODY=$(python3 ~/wingman/scripts/hookmail_body.py)
 
-gws gmail +send \
-  --from "COREFLUX STUDIO <info@coreflux.studio>" \
-  --to "{mock_email_o_lead_email}" \
-  --subject "ho fatto il vostro sito" \
-  --body "Ciao,
+# Send via Brevo SMTP (send-hookmail.sh wrapper)
+bash ~/wingman/scripts/send-hookmail.sh   --from "COREFLUX STUDIO <info@coreflux.studio>"   --to "{mock_email_o_lead_email}"   --subject "ho fatto il vostro sito"   --body "$BODY"
 
-cercavo {TIPO_ATTIVITA_GENERICA} a {CITTA} su Google e non vi ho trovati. Brutta cosa per voi, buona scusa per me.
+# Log success
+mkdir -p ~/wingman/vault-sales/{lead_id}
+cat > ~/wingman/vault-sales/{lead_id}/outreach_log.md << LOGEOF
+data: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+canale: brevo-smtp
+to: {email_destinatario}
+preview_url: $PREVIEW_URL
+status: sent
+LOGEOF
 
-Abbiamo appena lanciato il sito delle Macellerie Bergamaschi a Cornaredo. Zero pubblicita. 300 visite in due settimane, senza spendere un euro in pubblicita.
-
-Ho costruito la stessa cosa per {NOME}, gia online:
-
-$PREVIEW_URL
-
-Questo mese sto selezionando 3 attivita nella zona a cui offro il sito a meta prezzo. Costo fisso, nessuna sorpresa. Se vi interessa, rispondete entro questa settimana.
-
-Vale una chiacchierata? Si o no?
-
-Teo
-CoreFlux Studio"
+echo "✓ Email sent via Brevo SMTP"
 ```
 
-> - {TIPO_ATTIVITA_GENERICA}: categoria generica del lead (es. "un parrucchiere", "una macelleria", "un panificio") — da profile.md campo `categoria`.
-> - {NOME}: nome attivita reale da profile.md.
-> - Se PREVIEW_URL vuoto: sostituisci l'intera riga URL con "Sto preparando la demo per {NOME}, te la mando in giornata."
+**Key Changes** (vs old gws Gmail API):
+- Send via `send-hookmail.sh` (Brevo SMTP) — SPF-aligned, no spam folder
+- Body from `hookmail_body.py` — deterministic, finalized copy
+- No LLM email generation — template is source of truth
+- Env vars inject tokens into Python script
 
 ### STEP 8 — kanban_complete
 ```bash
