@@ -261,18 +261,11 @@ echo "Preview URL: $PREVIEW_URL"
 
 Se deploy fallisce: continua comunque, segnala nel Mini-Report finale.
 
-### STEP 7 — Hookmail (Brevo SMTP)
+### STEP 7 — Hookmail (Brevo SMTP + HTML Template)
 
-> **Canonical email body**: `~/wingman/scripts/hookmail_body.py` (finalized copy, no LLM generation)
+> **Canonical email template**: `~/wingman/scripts/hookmail_template.html` (elegant design, story-driven copy)
 > 
-> Email copy style (OBBLIGATORIO):
-> - NO em dash (—). Usa virgola o punto.
-> - NO robotiche frasi ("Mi permetto", "Ho avuto il piacere").
-> - Story-driven: curiosità + case study Bergamaschi + scarcità ("ho ancora un posto libero")
-> - Subject: lowercase, 3-5 parole, curiosità
-> - Firma: "Teo
-CoreFlux Studio"
-> - NO generico copy — personalizzato con {NOME}, {CITTA}, {TIPO}, {PREVIEW_URL}
+> Template is injected with lead-specific tokens via `hookmail_send.py`
 
 **Execution**:
 
@@ -285,17 +278,20 @@ if [ -f ~/wingman/vault-sales/{lead_id}/outreach_log.md ]; then
   fi
 fi
 
-# Set env vars for hookmail_body.py
-export NOME="{nome_da_profile}"
-export CITTA="{citta_da_profile}"
-export TIPO="{tipo_da_profile}"
-export PREVIEW_URL="$(cat ~/wingman/vault-sales/{lead_id}/preview_url.txt 2>/dev/null || echo '')"
+# Extract lead data from profile.md
+NOME=$(grep "^nome:" ~/wingman/vault-sales/{lead_id}/profile.md | cut -d: -f2 | xargs)
+TIPO=$(grep "^tipo:" ~/wingman/vault-sales/{lead_id}/profile.md | cut -d: -f2 | xargs)
+CITTÀ=$(grep "^città:" ~/wingman/vault-sales/{lead_id}/profile.md | cut -d: -f2 | xargs)
+NOME_ATTIVITÀ="$NOME"  # or extract from profile if different
 
-# Generate body (from finalized template)
-BODY=$(python3 ~/wingman/scripts/hookmail_body.py)
-
-# Send via Brevo SMTP (send-hookmail.sh wrapper)
-bash ~/wingman/scripts/send-hookmail.sh   --from "COREFLUX STUDIO <info@coreflux.studio>"   --to "{mock_email_o_lead_email}"   --subject "ho fatto il vostro sito"   --body "$BODY"
+# Send email via Brevo SMTP + HTML template
+bash ~/wingman/scripts/send-hookmail.sh \
+  --to "{mock_email_o_lead_email}" \
+  --subject "ho fatto il vostro sito" \
+  --nome "$NOME" \
+  --tipo "$TIPO" \
+  --città "$CITTÀ" \
+  --nome-attività "$NOME_ATTIVITÀ"
 
 # Log success
 mkdir -p ~/wingman/vault-sales/{lead_id}
@@ -303,18 +299,19 @@ cat > ~/wingman/vault-sales/{lead_id}/outreach_log.md << LOGEOF
 data: $(date -u +%Y-%m-%dT%H:%M:%SZ)
 canale: brevo-smtp
 to: {email_destinatario}
-preview_url: $PREVIEW_URL
+preview_url: $(cat ~/wingman/vault-sales/{lead_id}/preview_url.txt 2>/dev/null || echo '')
 status: sent
 LOGEOF
 
 echo "✓ Email sent via Brevo SMTP"
 ```
 
-**Key Changes** (vs old gws Gmail API):
-- Send via `send-hookmail.sh` (Brevo SMTP) — SPF-aligned, no spam folder
-- Body from `hookmail_body.py` — deterministic, finalized copy
-- No LLM email generation — template is source of truth
-- Env vars inject tokens into Python script
+**Tokens injected into template**:
+- {{NOME_ATTIVITÀ}} — Activity name (e.g., "Panificio Rossi")
+- {{NOME}} — Salutation name (same as NOME_ATTIVITÀ)
+- {{TIPO_ATTIVITÀ}} — Category (e.g., "un panificio", "una macelleria")
+- {{CITTÀ}} — City
+
 
 ### STEP 8 — kanban_complete
 ```bash

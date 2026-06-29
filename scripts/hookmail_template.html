@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{NOME_ATTIVITÀ}} - CoreFlux Studio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap');
+  body { margin: 0; padding: 0; background-color: #ffffff; font-family: 'Inter', Arial, sans-serif; }
+  .email-wrapper { max-width: 600px; margin: 0 auto; padding: 48px 40px; }
+  .label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background-color: #b4b2a9; }
+  .label-text { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #888780; }
+  .subject-block { border-left: 2px solid #2c2c2a; padding-left: 20px; margin-bottom: 40px; }
+  .subject-eyebrow { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin: 0 0 6px; }
+  .subject-line { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 400; line-height: 1.35; color: #2c2c2a; margin: 0; font-style: italic; }
+  .divider { width: 32px; height: 1px; background-color: #d3d1c7; margin: 32px 0; }
+  .body-text { font-size: 16px; line-height: 1.75; color: #2c2c2a; margin: 0 0 20px; }
+  .body-text.opener { font-size: 17px; }
+  .proof-block { border: 1px solid #d3d1c7; border-radius: 10px; padding: 20px 24px; background-color: #f1efe8; margin: 28px 0; }
+  .proof-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #888780; margin: 0 0 6px; }
+  .proof-stat { font-size: 15px; color: #2c2c2a; line-height: 1.6; margin: 0; }
+  .proof-stat strong { font-weight: 500; }
+  .cta-line { font-size: 18px; font-style: italic; font-family: 'Playfair Display', Georgia, serif; color: #2c2c2a; margin: 28px 0 32px; }
+  .sig { padding-top: 24px; border-top: 1px solid #d3d1c7; }
+  .sig-name { font-size: 15px; font-weight: 500; color: #2c2c2a; margin: 0 0 3px; }
+  .sig-studio { font-size: 13px; color: #5f5e5a; margin: 0 0 3px; }
+  .sig-url { font-size: 13px; color: #888780; margin: 0; }
+</style>
+</head>
+<body>
+<div class="email-wrapper">
+  <div class="label-row">
+    <div class="dot"></div>
+    <span class="label-text">CoreFlux Studio</span>
+  </div>
+  <div class="subject-block">
+    <p class="subject-eyebrow">Oggetto</p>
+    <p class="subject-line">Ho cercato {{NOME_ATTIVITÀ}} su Google. Non la trovo.</p>
+  </div>
+  <div class="divider"></div>
+  <p class="body-text opener">Ciao {{NOME}},</p>
+  <p class="body-text">La settimana scorsa cercavo {{TIPO_ATTIVITÀ}} a {{CITTÀ}}.</p>
+  <p class="body-text">Ho provato in tre modi diversi. {{NOME_ATTIVITÀ}} non compariva. Né nella mappa, né nei risultati organici. Niente.</p>
+  <p class="body-text">Un posto che lavora bene non dovrebbe essere invisibile.</p>
+  <div class="proof-block">
+    <p class="proof-label">Caso recente</p>
+    <p class="proof-stat"><strong>Macelleria a Cornaredo.</strong> Zero presenza online. In due settimane: traffico organico costante, clienti nuovi che non li avevano mai sentiti nominare. Senza un euro in pubblicità.</p>
+  </div>
+  <p class="body-text">Ho già analizzato la vostra situazione. Ho anche abbozzato qualcosa di concreto, se vi fa curiosità ve lo mando subito.</p>
+  <p class="cta-line">Vale una risposta?</p>
+  <div class="sig">
+    <p class="sig-name">Teo</p>
+    <p class="sig-studio">CoreFlux Studio</p>
+    <p class="sig-url">coreflux.studio</p>
+  </div>
+</div>
+</body>
+</html>
