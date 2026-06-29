@@ -31,7 +31,7 @@ def main():
         'workspace_kind,consecutive_failures,goal_mode,model_override,max_runtime_seconds,max_retries) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)',
         (tid, 'Lead pipeline: preview + hookmail', body,
          'sales-pipeline-runner', 'todo', 0, now, 'scratch', 0, 1,
-         'google/gemini-3-flash-preview', 1800, 2)
+         None, 1800, 2)
     )
     db.commit(); db.close()
 

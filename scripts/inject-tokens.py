@@ -13,7 +13,7 @@ def main():
     with open(tpl_path, encoding='utf-8') as f:
         html = f.read()
 
-    all_toks = set(re.findall(r'\{\{([A-Z_]+)\}\}', html))
+    all_toks = set(re.findall(r'\{\{([A-Z0-9_]+)\}\}', html))
     filled, remaining = [], []
 
     for tok in all_toks:
